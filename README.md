@@ -1,2 +1,1 @@
-# Berry
-Bitcron Theme Berry
+# Coffin
