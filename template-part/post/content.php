@@ -10,7 +10,7 @@
             ?></p>
         <p>
         <p>
-            <a class="more-link" href="/post/bitcron/run">read more..</a>
+            <a class="more-link" href="<?php the_permalink();?>">read more..</a>
         </p>
     </div>
 </article>
