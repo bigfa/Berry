@@ -9,7 +9,6 @@
         <p><?php echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 380,"...");
             ?></p>
         <p>
-        <p>
             <a class="more-link" href="<?php the_permalink();?>">read more..</a>
         </p>
     </div>
