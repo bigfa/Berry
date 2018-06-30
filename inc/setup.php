@@ -1,6 +1,6 @@
 <?php
 
-function coffin_setup(){
+function berry_setup(){
     add_theme_support( 'title-tag' );
 
     add_theme_support( 'post-thumbnails' );
@@ -17,26 +17,26 @@ function coffin_setup(){
     ) );
 }
 
-add_action( 'after_setup_theme', 'coffin_setup' );
+add_action( 'after_setup_theme', 'berry_setup' );
 
 function coffin_send_analystic(){
-    $current_version = get_option('_jaguar_version');
+    $current_version = get_option('_berry_version');
     $api_url = "https://dev.fatesinger.com/_/api/";
-    $theme_data = coffin_get_theme();
+    $theme_data = berry_get_theme();
     if ( $current_version == $theme_data['theme_version'] ) return;
-    $send_body = array_merge(array('action' => 'coffin_send_analystic'), $theme_data);
+    $send_body = array_merge(array('action' => 'berry_send_analystic'), $theme_data);
     $send_for_check = array(
         'body' => $send_body,
         'sslverify' => false,
         'timeout' => 300,
     );
     $response = wp_remote_post($api_url, $send_for_check);
-    if ( !is_wp_error($response ) ) update_option( '_coffin_version' , $theme_data['theme_version'] );
+    if ( !is_wp_error($response ) ) update_option( '_berry_version' , $theme_data['theme_version'] );
 }
 
 add_action('after_switch_theme','coffin_send_analystic');
 
-function coffin_get_theme(){
+function berry_get_theme(){
     global $wp_version;
     $theme_name = get_option('template');
 
