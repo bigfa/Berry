@@ -38,9 +38,7 @@ Template Name: 文章归档模版
                     $mon = $mon_tmp;
                     $output .= "<div class='list list--archive'><h3 class='month-title'>" . $year . ' - ' . $mon . '</h3>'  . "<ul class='blockGroup is-ordered'>" ;
                 }
-                if($i < 5) :
-                    $output .= '<li class="archive-item"><a class="archive-item-title" href="'.get_permalink() .'">' . get_the_title() . '</a></li>';
-                endif;
+                $output .= '<li class="archive-item"><a class="archive-item-title" href="'.get_permalink() .'">' . get_the_title() . '</a></li>';
             endwhile;
             wp_reset_postdata();
             $output .= '</ul></div>';
