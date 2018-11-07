@@ -5,7 +5,7 @@
     <meta charset="<?php bloginfo('charset');?>">
     <meta name="viewport" content="initial-scale=1.0,minimal-ui">
     <?php wp_head();?>
-    <link type="image/vnd.microsoft.icon" href="<?php echo get_template_directory_uri();?>/build/img/favicon.png" rel="shortcut icon">
+    <link type="image/vnd.microsoft.icon" href="<?php echo get_template_directory_uri();?>/build/images/favicon.png" rel="shortcut icon">
 </head>
 <body <?php body_class('is-noJs');?>>
 <script>document.body.className = document.body.className.replace(/(^|\s)is-noJs(\s|$)/, "$1is-js$2")</script>
