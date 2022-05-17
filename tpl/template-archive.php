@@ -5,10 +5,10 @@ Template Name: 文章归档模版
 ?>
 <?php get_header(); ?>
 <main class="main-content">
-        <section class="container">
-   <h2 class="block-title">
-                <?php the_title();?>
-            </h2>
+    <section class="container">
+        <h2 class="block-title">
+            <?php the_title(); ?>
+        </h2>
         <div class="list-archive-wrapper">
             <?php
             $args = array(
@@ -16,13 +16,13 @@ Template Name: 文章归档模版
                 'post_type' => array('post'),
                 'ignore_sticky_posts' => 1,
             );
-            $the_query = new WP_Query( $args );
-            $year=0;
-            $mon=0;
+            $the_query = new WP_Query($args);
+            $year = 0;
+            $mon = 0;
             $all = array();
             $output = '';
-            $i= 0;
-            while ( $the_query->have_posts() ) : $the_query->the_post();
+            $i = 0;
+            while ($the_query->have_posts()) : $the_query->the_post();
                 $i++;
                 $year_tmp = get_the_time('Y');
                 $mon_tmp = get_the_time('n');
@@ -36,14 +36,14 @@ Template Name: 文章归档模版
                 if ($mon != $mon_tmp) {
                     $i = 0;
                     $mon = $mon_tmp;
-                    $output .= "<div class='list list--archive'><h3 class='month-title'>" . $year . ' - ' . $mon . '</h3>'  . "<ul class='blockGroup is-ordered'>" ;
+                    $output .= "<div class='list list--archive'><h3 class='month-title'>" . $year . ' - ' . $mon . '</h3>'  . "<ul class='blockGroup is-ordered'>";
                 }
-                $output .= '<li class="archive-item"><a class="archive-item-title" href="'.get_permalink() .'">' . get_the_title() . '</a></li>';
+                $output .= '<li class="archive-item"><a class="archive-item-title" href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
             endwhile;
             wp_reset_postdata();
             $output .= '</ul></div>';
             echo $output;      ?>
         </div>
-  </section>
+    </section>
 </main>
 <?php get_footer(); ?>
