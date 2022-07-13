@@ -1,5 +1,5 @@
 <?php
-define('BERRY_VERSION', '1.0.6');
+define('BERRY_VERSION', '1.0.7');
 define('BERRY_DEBUG', false);
 
 require('inc/setup.php');
