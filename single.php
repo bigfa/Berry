@@ -10,8 +10,10 @@
             <span class="sep"></span>
             <?php the_category(',') ?>
             <div class="post--meta">
-                <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true); ?> Likes
-                <span class="sep"></span>
+                <?php if (get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true)) : ?>
+                    <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true); ?> Likes
+                    <span class="sep"></span>
+                <?php endif; ?>
                 <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_VIEW_KEY, true); ?> Views
             </div>
         </div>

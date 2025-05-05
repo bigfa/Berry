@@ -4,6 +4,12 @@
 
 ## Changelog
 
+### 2.0.1
+
+- update translation
+- add blogroll template
+- add category list template
+
 ### 2.0.0
 
 - redesign
