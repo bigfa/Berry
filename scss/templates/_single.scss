@@ -1,0 +1,234 @@
+.postFooter--simple {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    .postFooter-author,
+    .postFooter-collection {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .postFooter-info,
+    .postFooter-translators {
+        font-size: 14px;
+    }
+}
+
+.card-image--collection {
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+    background: #f0f0f0;
+}
+
+.collectionAvatar {
+    display: flex;
+}
+
+.button--link,
+.button--chromeless {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0);
+    height: auto;
+    line-height: inherit;
+    border-width: 0;
+    padding: 0;
+    vertical-align: baseline;
+    color: rgba(0, 0, 0, 0.3);
+    white-space: normal;
+}
+
+.page-title {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.taxonomy-description {
+    font-size: 14px;
+    color: var(--berry-text-gray);
+    line-height: 1.4;
+    padding: 0 10%;
+    margin-top: 10px;
+}
+
+.archive-header {
+    padding-bottom: 30px;
+}
+
+.articleRelated {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 15px;
+    padding-bottom: 20px;
+
+    &__status {
+        padding: 12px;
+        border-radius: 8px;
+        background-color: var(--berry-background-gray-light);
+
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--berry-text-gray);
+        }
+
+        .meta {
+            font-size: 12px;
+            color: var(--berry-text-gray-lightest);
+            line-height: 1;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+
+            svg {
+                fill: var(--berry-text-gray-lightest);
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &__item {
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+
+        &__title {
+            font-size: 16px;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:hover {
+                color: var(--berry-hover-color);
+            }
+        }
+
+        .meta {
+            font-size: 12px;
+            color: var(--berry-text-gray-lightest);
+            line-height: 1;
+            margin-top: 5px;
+        }
+    }
+
+    .block--images {
+        /* two columns */
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 8px;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+
+        .block--image {
+            /* straggle image */
+            aspect-ratio: 1 / 0.67;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    }
+}
+
+.related--posts__title {
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.postFooter-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    .postFooter-action {
+        margin-right: 10px;
+        font-size: 14px;
+        color: var(--berry-text-gray);
+        text-decoration: none;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .button--like,
+    .button--share {
+        border: 0;
+        background-color: rgba(0, 0, 0, 0);
+        cursor: pointer;
+
+        &.is-active {
+            svg {
+                fill: var(--coffin-main-color);
+            }
+
+            .icon--active {
+                display: block;
+            }
+
+            .icon--default {
+                display: none;
+            }
+        }
+
+        .icon--active {
+            display: none;
+        }
+
+        .icon--block {
+            display: none;
+        }
+    }
+
+    .button--like {
+        svg {
+            fill: var(--farallon-text-gray);
+        }
+
+        &:hover,
+        &.is-active {
+            svg {
+                fill: var(--farallon-hover-color);
+            }
+        }
+    }
+}
+
+.berry--toc {
+    summary {
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+
+    font-size: 14px;
+    background-color: var(--berry-background-gray-light);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    li {
+        margin-bottom: 0;
+        line-height: 1.4;
+
+        &::before {
+            width: 42px;
+            margin-left: -42px;
+            padding-right: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            &:hover {
+                color: var(--berry-main-color);
+            }
+        }
+    }
+
+    ul {
+        padding-left: 5px;
+    }
+}

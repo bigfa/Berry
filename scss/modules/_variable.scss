@@ -1,0 +1,159 @@
+:root {
+    // --berry-main-color: #27ae60;
+    --berry-main-color: #5f4b8b; //#4370f5;
+    --berry-hover-color: #654ea3; // #3a5f9a;
+    --berry-text-color: rgba(0, 0, 0, 0.84);
+    --berry-text-light: rgba(0, 0, 0, 0.68);
+    --berry-text-gray: rgba(0, 0, 0, 0.6);
+    --berry-text-gray-lightest: rgba(0, 0, 0, 0.5);
+
+    --berry-background-white: rgba(255, 255, 255, 1);
+    --berry-background-gray: #f0f0f0;
+    --berry-background-gray-light: #f9f9f9;
+    --berry-background-opacity: 0.9;
+    --berry-background-white-opacity: rgba(255, 255, 255, var(--berry-background-opacity));
+
+    --berry-border-color: rgba(0, 0, 0, 0.1);
+    --berry-border-color-light: rgba(0, 0, 0, 0.05);
+
+    --berry-text-size-small: 14px;
+    --berry-text-size-normal: 16px;
+    --berry-text-size-smallest: 12px;
+
+    --berry-content-width: 836px;
+
+    --db-main-color: var(--berry-main-color);
+    --db-hover-color: var(--berry-hover-color);
+    --db--text-color: var(--berry-text-color);
+    --db--text-color-light: var(--berry-text-light);
+    --db--background-gray: var(--berry-background-gray);
+    --db-border-color: var(--berry-border-color);
+
+    .db--genreItem {
+        &:hover {
+            color: var(--berry-backgroud-white);
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .auto {
+        // --berry-main-color: rgba(253, 186, 116, 1);
+        // --berry-hover-color: rgba(255, 237, 213, 1);
+        --berry-text-color: #a1a1aa;
+        --berry-text-light: rgba(161, 161, 170, 1);
+        --berry-text-gray: rgba(113, 113, 122, 1);
+        --berry-text-gray-lightest: rgba(113, 113, 122, 0.95);
+
+        --berry-background-white: #1e1e1e;
+        --berry-background-gray: #000;
+        --berry-background-gray-light: #121212;
+        --berry-background-white-opacity: rgba(30, 30, 30, var(--berry-background-opacity));
+
+        --berry-border-color: rgba(63, 63, 70, 0.6);
+        --berry-border-color-light: rgba(63, 63, 70, 0.4);
+
+        --db-main-color: var(--berry-main-color);
+        --db-hover-color: var(--berry-hover-color);
+        --db--text-color: var(--berry-text-color);
+        --db--text-color-light: var(--berry-text-light);
+        --db--background-gray: var(--berry-background-gray);
+        --db-border-color: var(--berry-border-color);
+
+        .db--genreItem {
+            &:hover {
+                color: var(--berry-backgroud-white);
+            }
+        }
+
+        .doulist-item {
+            border-color: var(--db-border-color);
+        }
+
+        .comment-form {
+            input,
+            textarea {
+                background-color: rgba(63, 63, 70, 0.15);
+                border-color: rgba(63, 63, 70, 1);
+            }
+        }
+    }
+}
+
+.dark {
+    // --berry-main-color: rgba(253, 186, 116, 1);
+    // --berry-hover-color: rgba(255, 237, 213, 1);
+    --berry-text-color: #a1a1aa;
+    --berry-text-light: rgba(161, 161, 170, 1);
+    --berry-text-gray: rgba(113, 113, 122, 1);
+    --berry-text-gray-lightest: rgba(113, 113, 122, 0.95);
+
+    --berry-background-white: #1e1e1e;
+    --berry-background-gray: #000;
+    --berry-background-gray-light: #121212;
+    --berry-background-white-opacity: rgba(30, 30, 30, var(--berry-background-opacity));
+
+    --berry-border-color: rgba(63, 63, 70, 0.6);
+    --berry-border-color-light: rgba(63, 63, 70, 0.4);
+
+    --db-main-color: var(--berry-main-color);
+    --db-hover-color: var(--berry-hover-color);
+    --db--text-color: var(--berry-text-color);
+    --db--text-color-light: var(--berry-text-light);
+    --db--background-gray: var(--berry-background-gray);
+    --db-border-color: var(--berry-border-color);
+
+    .db--genreItem {
+        &:hover {
+            color: var(--berry-backgroud-white);
+        }
+    }
+
+    .doulist-item {
+        border-color: var(--db-border-color);
+    }
+
+    .comment-form {
+        input,
+        textarea {
+            background-color: rgba(63, 63, 70, 0.15);
+            border-color: rgba(63, 63, 70, 1);
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('../fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Light.woff2') format('woff2'),
+        url('../fonts/OpenSans-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Medium.woff2') format('woff2'),
+        url('../fonts/OpenSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}

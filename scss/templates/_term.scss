@@ -1,0 +1,29 @@
+.term--header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+
+    .term--image {
+        width: 80px;
+        height: 80px;
+        border-radius: 3px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    &__content {
+        text-align: center;
+
+        .term--title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .term--description {
+            font-size: 14px;
+            color: var(--berry-text-light);
+        }
+    }
+}

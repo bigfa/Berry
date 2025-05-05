@@ -3,28 +3,26 @@ if (post_password_required())
     return;
 ?>
 <div id="comments" class="comments-area">
-    <div class="layoutSingleColumn">
-        <?php if (have_comments()) : ?>
-            <h2 class="comments-title">
-                <?php echo number_format_i18n(get_comments_number()); ?> 条评论
-            </h2>
-            <ol class="comment-list">
-                <?php
-                wp_list_comments(array(
-                    'style'       => 'ol',
-                    'short_ping'  => true,
-                    'reply_text'  => 'Respond',
-                    'avatar_size' => 42,
-                    'format'            => 'html5'
-                ));
-                ?>
-            </ol>
-            <?php the_comments_pagination(array(
-                'prev_text' => '上一页',
-                'next_text' => '下一页',
-                'prev_next' => false,
-            )); ?>
-        <?php endif; ?>
-        <?php comment_form(); ?>
-    </div>
+    <?php if (have_comments()) : ?>
+        <h2 class="comments-title">
+            <?php printf(_nx('One comment', '%1$s comments', get_comments_number(), 'comments title', 'Berry'), number_format_i18n(get_comments_number())); ?>
+        </h2>
+        <ol class="comment-list commentlist">
+            <?php
+            wp_list_comments(array(
+                'style'       => 'ol',
+                'short_ping'  => true,
+                'reply_text'  => __('Reply', 'Berry'),
+                'avatar_size' => 42,
+                'format'      => 'html5'
+            ));
+            ?>
+        </ol>
+        <?php the_comments_pagination(array(
+            'prev_text' => __('Prev', 'Berry'),
+            'next_text' => __('Next', 'Berry'),
+            'prev_next' => false,
+        )); ?>
+    <?php endif; ?>
+    <?php comment_form(); ?>
 </div>

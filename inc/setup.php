@@ -1,57 +1,333 @@
 <?php
-
-function berry_setup()
+class berryBase
 {
-    add_theme_support('title-tag');
 
-    add_theme_support('post-thumbnails');
+    public function __construct()
+    {
+        global $berrySetting;
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+        add_filter('excerpt_length', array($this, 'excerpt_length'));
+        add_filter('excerpt_more', array($this, 'excerpt_more'));
+        add_filter("the_excerpt", array($this, 'custom_excerpt_length'), 999);
+        add_theme_support('html5', array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption'
+        ));
+        add_theme_support('title-tag');
+        register_nav_menu('berry', __('Primary Menu', 'Berry'));
+        add_theme_support('post-formats', array('status'));
+        add_filter('pre_option_link_manager_enabled', '__return_true');
+        add_action('widgets_init', array($this, 'widgets_init'));
+        add_action('wp_head', array($this, 'head_output'), 11);
+        add_action('edit_category_form_fields', array($this, 'add_category_cover_form_item'));
+        add_action('edited_terms', array($this, 'update_my_category_fields'));
+        add_theme_support('post-thumbnails');
+        if ($berrySetting->get_setting('toc'))
+            add_filter('the_content', array($this, 'berry_toc'));
+        if ($berrySetting->get_setting('gravatar_proxy'))
+            add_filter('get_avatar_url', array($this, 'gravatar_proxy'), 10, 3);
 
-    register_nav_menus(array(
-        'top'    => 'Top Menu',
-    ));
+        add_action('admin_enqueue_scripts', array($this, 'admin_enquenue_scripts'));
 
-    add_theme_support('html5', array(
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'caption',
-    ));
-}
+        if ($berrySetting->get_setting('exclude_status'))
+            add_filter('pre_get_posts', array($this, 'exclude_post_format'));
+        if ($berrySetting->get_setting('image_zoom'))
+            add_filter('the_content', array($this, 'image_zoom'));
 
-add_action('after_setup_theme', 'berry_setup');
-
-function berry_send_analystic()
-{
-    $current_version = get_option('_berry_version');
-    $api_url = "https://dev.fatesinger.com/_/api/";
-    $theme_data = berry_get_theme();
-    if ($current_version == $theme_data['theme_version']) return;
-    $send_body = array_merge(array('action' => 'berry_send_analystic'), $theme_data);
-    $send_for_check = array(
-        'body' => $send_body,
-        'sslverify' => false,
-        'timeout' => 300,
-    );
-    $response = wp_remote_post($api_url, $send_for_check);
-    if (!is_wp_error($response)) update_option('_berry_version', $theme_data['theme_version']);
-}
-
-add_action('after_switch_theme', 'berry_send_analystic');
-
-function berry_get_theme()
-{
-    global $wp_version;
-    $theme_name = get_option('template');
-
-    if (function_exists('wp_get_theme')) {
-        $theme_data = wp_get_theme($theme_name);
-        $theme_version = $theme_data->Version;
-    } else {
-        $theme_data = wp_get_theme();
-        $theme_version = $theme_data['Version'];
+        if ($berrySetting->get_setting('rss_tag'))
+            add_action('rss2_head', array($this, 'add_rss_tag'));
     }
 
-    $site_url = home_url();
+    function add_rss_tag()
+    {
+        global $berrySetting;
+        echo $berrySetting->get_setting('rss_tag');
+    }
 
-    return compact('wp_version', 'theme_name', 'theme_version', 'site_url');
+
+    function image_zoom($content)
+    {
+        $pattern = "/<a(.*?)href=('|\")([^>]*).(bmp|gif|jpeg|jpg|png)('|\")(.*?)>(.*?)<\/a>/i";
+        $replacement = '<a$1href=$2$3.$4$5 data-action="imageZoomIn" $6>$7</a>';
+        $content = preg_replace($pattern, $replacement, $content);
+        return $content;
+    }
+
+    function exclude_post_format($query)
+    {
+        if ($query->is_home() && $query->is_main_query()) {
+            $query->set('tax_query', array(
+                array(
+                    'taxonomy' => 'post_format',
+                    'field' => 'slug',
+                    'terms' => array('post-format-status'),
+                    'operator' => 'NOT IN'
+                )
+            ));
+        }
+    }
+
+    function update_my_category_fields($term_id)
+    {
+        if (isset($_POST['taxonomy']) && $_POST['taxonomy'] == 'category') :
+            if ($_POST['_category_cover']) {
+                update_term_meta($term_id, '_thumb', $_POST['_category_cover']);
+            } else {
+                delete_term_meta($term_id, '_thumb');
+            }
+
+        endif;
+    }
+
+    //Adds the custom title box to the category editor
+    function add_category_cover_form_item($category)
+    {
+        $cover  = get_term_meta($category->term_id, '_thumb', true); ?>
+        <table class="form-table">
+            <tr class="form-field">
+                <th scope="row" valign="top"><label for="_category_cover"><?php _e('Cover', 'Berry'); ?></label></th>
+                <td><input name="_category_cover" id="_category_cover" type="text" size="40" aria-required="false" value="<?php echo $cover; ?>" class="regular-text ltr" />
+                    <p class="description"><button id="upload-categoryCover" class="button"><?php _e('Upload', 'Berry'); ?></button></p>
+                    <p class="description"><?php _e('Category cover url.', 'Berry'); ?></p>
+                </td>
+            </tr>
+        </table>
+<?php }
+
+    function gravatar_proxy($url, $id_or_email, $args)
+    {
+        global $berrySetting;
+        $url = str_replace(array("www.gravatar.com", "cn.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com", "secure.gravatar.com"), $berrySetting->get_setting('gravatar_proxy'), $url);
+        return $url;
+    }
+
+    function berry_toc($content)
+    {
+        global $berrySetting;
+        $toc_start = $berrySetting->get_setting('toc_start') ? $berrySetting->get_setting('toc_start') : 3;
+        preg_match_all('/<h([' . $toc_start . '-6]).*?>(.*?)<\/h[' . $toc_start . '-6]>/i', $content, $matches, PREG_SET_ORDER);
+
+        if ($matches && is_singular()) {
+            $toc = '<ul>';
+            $previous_level = 3;
+            $count = 1;
+
+            foreach ($matches as $match) {
+                $level = $match[1];
+                $title = $match[2];
+                if ($level > $previous_level) {
+                    $toc .= '<ul>';
+                } elseif ($level < $previous_level) {
+                    $toc .= str_repeat('</ul></li>', $previous_level - $level);
+                } else {
+                    $toc .= '</li>';
+                }
+
+                $toc .= sprintf('<li><a href="#toc-%s">%s</a>', $count, $title);
+                $content = str_replace($match[0], sprintf('<h%s id="toc-%s">%s</h%s>', $level, $count, $title, $level), $content);
+
+                $previous_level = $level;
+                $count++;
+            }
+
+            $toc .= str_repeat('</li></ul>', $previous_level - 2);
+            $toc .= '</ul>';
+
+            $content = '<details class="berry--toc" open><summary>' . __('Table of content', 'Berry') . '</summary>' . $toc . '</details>' . $content;
+        }
+
+        return $content;
+    }
+
+    function head_output()
+    {
+        global $wp, $post, $berrySetting;
+        $current_url = home_url(add_query_arg(array(), $wp->request));
+
+        //echo '<link type="image/vnd.microsoft.icon" href="/favicon.png" rel="shortcut icon">';
+
+        $description = '';
+        $blog_name = get_bloginfo('name');
+        $ogmeta = '<meta property="og:title" content="' . wp_get_document_title() . '">';
+        $ogmeta .= '<meta property="og:url" content="' . $current_url . '">';
+        if (is_singular()) {
+            $ID = $post->ID;
+            $author = $post->post_author;
+            if (get_post_meta($ID, "_desription", true)) {
+                $description = get_post_meta($ID, "_desription", true);
+            } else {
+                $description = $post->post_title . '，' . __('author', 'Berry') . ':' . get_the_author_meta('nickname', $author) . '，' . __('published on', 'Berry') . get_the_date('Y-m-d');
+            }
+            echo '<meta name="description" content="' . $description . '">';
+            $ogmeta .= '<meta property="og:image" content="' . berry_get_background_image($ID) . '">';
+            $ogmeta .= '<meta property="og:description" content="' . $description . '">';
+            $ogmeta .= '<meta property="og:type" content="article">';
+            $twitter_meta = '<meta name="twitter:card" content="summary_large_image">';
+            $twitter_meta .= '<meta name="twitter:image:src" content="' . berry_get_background_image($post->ID) . '">';
+            $twitter_meta .= '<meta name="twitter:site" content="@fatesinger">';
+            $twitter_meta .= '<meta name="twitter:title" content="' . $post->post_title . '">';
+            $twitter_meta .= '<meta name="twitter:description" content="' . $description . '">';
+            echo $twitter_meta;
+        } else {
+            if (is_home()) {
+                $description = $berrySetting->get_setting('description');
+            } elseif (is_category()) {
+                $description = single_cat_title('', false) . " - " . trim(strip_tags(category_description()));
+            } elseif (is_tag()) {
+                $description = trim(strip_tags(tag_description()));
+            } else {
+                $description = $berrySetting->get_setting('description');
+            }
+            $description = mb_substr($description, 0, 220, 'utf-8');
+            if ($berrySetting->get_setting('og_default_thumb')) {
+                $ogmeta .= '<meta property="og:image" content="' . $berrySetting->get_setting('og_default_thumb') . '">';
+            }
+            if ($description) $ogmeta .= '<meta property="og:description" content="' . $description . '">';
+            $ogmeta .= '<meta property="og:type" content="website">';
+            if ($description) echo '<meta name="description" content="' . $description . '">';
+        }
+        echo $ogmeta;
+    }
+
+    function widgets_init()
+    {
+
+        register_sidebar(array(
+            'name'          => __('Homepage Top', 'Berry'),
+            'id'            => 'topbar',
+            'description'   => __('Homepage Top', 'Berry'),
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="heading-title">',
+            'after_title'   => '</h3>',
+        ));
+
+        register_sidebar(array(
+            'name'          => __('Homepage Bottom', 'Berry'),
+            'id'            => 'footerbar',
+            'description'   => __('Homepage Bottom', 'Berry'),
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="heading-title">',
+            'after_title'   => '</h3>',
+        ));
+
+        register_sidebar(array(
+            'name'          => __('Single Pgae Bottom', 'Berry'),
+            'id'            => 'singlefooterbar',
+            'description'   => __('Single Pgae Bottom', 'Berry'),
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h3 class="heading-title">',
+            'after_title'   => '</h3>',
+        ));
+    }
+
+    function custom_excerpt_length($excerpt)
+    {
+        if (has_excerpt()) {
+            $excerpt = wp_trim_words(get_the_excerpt(), apply_filters("excerpt_length", 80));
+        }
+        return $excerpt;
+    }
+
+    function excerpt_more($more)
+    {
+        return '...';
+    }
+
+    function excerpt_length($length)
+    {
+        return 80;
+    }
+
+    function admin_enquenue_scripts()
+    {
+        // check if is category edit page and enquenue wp media
+        if (isset($_GET['taxonomy']) && $_GET['taxonomy'] == 'category') {
+            wp_enqueue_media();
+            wp_enqueue_script('berry-setting', get_template_directory_uri() . '/build/js/setting.min.js', ['jquery'], BERRY_VERSION, true);
+            wp_localize_script(
+                'berry-setting',
+                'obvInit',
+                [
+                    'is_single' => is_singular(),
+                    'post_id' => get_the_ID(),
+                    'restfulBase' => esc_url_raw(rest_url()),
+                    'nonce' => wp_create_nonce('wp_rest'),
+                    'ajaxurl' => admin_url('admin-ajax.php'),
+                    'success_message' => __('Setting saved success!', 'Berry'),
+                    'upload_title' => __('Upload Image', 'Berry'),
+                    'upload_button' => __('Set Category Image', 'Berry'),
+                ]
+            );
+        }
+    }
+
+    function enqueue_styles()
+    {
+        global $berrySetting;
+        wp_dequeue_style('global-styles');
+        wp_enqueue_style('berry-style', get_template_directory_uri() . '/build/css/app.min.css', array(), BERRY_VERSION, 'all');
+        if ($berrySetting->get_setting('css')) {
+            wp_add_inline_style('berry-style', $berrySetting->get_setting('css'));
+        }
+
+        if ($berrySetting->get_setting('banner')) {
+            wp_add_inline_style('berry-style', '.site-header{background-image:url(' . $berrySetting->get_setting('banner') . ');}');
+        }
+
+        if ($berrySetting->get_setting('disable_block_css')) {
+            wp_dequeue_style('wp-block-library');
+            wp_dequeue_style('wp-block-library-theme');
+            wp_dequeue_style('wc-blocks-style');
+        }
+    }
+
+    function enqueue_scripts()
+    {
+        global $berrySetting;
+        wp_enqueue_script('berry-script', get_template_directory_uri() . '/build/js/app.min.js', [], BERRY_VERSION, true);
+        wp_localize_script(
+            'berry-script',
+            'obvInit',
+            [
+                'is_single' => is_singular(),
+                'post_id' => get_the_ID(),
+                'restfulBase' => esc_url_raw(rest_url()),
+                'nonce' => wp_create_nonce('wp_rest'),
+                'darkmode' => !!$berrySetting->get_setting('darkmode'),
+                'version' => BERRY_VERSION,
+                'is_archive' => is_archive(),
+                'archive_id' => get_queried_object_id(),
+                'hide_home_cover' => !!$berrySetting->get_setting('hide_home_cover'),
+                'timeFormat' => [
+                    'second' => __('second ago', 'Berry'),
+                    'seconds' => __('seconds ago', 'Berry'),
+                    'minute' => __('minute ago', 'Berry'),
+                    'minutes' => __('minutes ago', 'Berry'),
+                    'hour' => __('hour ago', 'Berry'),
+                    'hours' => __('hours ago', 'Berry'),
+                    'day' => __('day ago', 'Berry'),
+                    'days' => __('days ago', 'Berry'),
+                    'week' => __('week ago', 'Berry'),
+                    'weeks' => __('weeks ago', 'Berry'),
+                    'month' => __('month ago', 'Berry'),
+                    'months' => __('months ago', 'Berry'),
+                    'year' => __('year ago', 'Berry'),
+                    'years' => __('years ago', 'Berry'),
+                ]
+            ]
+        );
+        if ($berrySetting->get_setting('javascript')) {
+            wp_add_inline_script('berry-script', $berrySetting->get_setting('javascript'));
+        }
+        if (is_singular()) wp_enqueue_script("comment-reply");
+    }
 }
+global $berryBase;
+$berryBase = new berryBase();

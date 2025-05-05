@@ -1,0 +1,51 @@
+.site-header {
+    padding-bottom: 50px;
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .site-header {
+        padding-bottom: 30px;
+    }
+}
+
+.subnav-ul {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: var(--berry-background-gray-light);
+    margin-bottom: 50px;
+    overflow-x: auto;
+
+    li {
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 14px;
+        flex: 0 0 auto;
+
+        a {
+            &:hover {
+                color: var(--berry-hover-gray);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.sub-menu {
+    display: none;
+}
+
+.site-title {
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: bold;
+    &:hover {
+        color: var(--berry-hover-color);
+    }
+}
+
+.site-description {
+    font-size: 18px;
+    color: var(--berry-text-gray);
+}

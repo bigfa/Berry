@@ -1,0 +1,217 @@
+.author-date {
+    font-size: 12px;
+    color: var(--berry-text-gray);
+}
+
+.comments-area {
+    padding-top: 40px;
+}
+
+.comment-reply-title,
+.comments-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.comment-reply-title {
+    display: flex;
+    align-items: center;
+    small {
+        margin-left: auto;
+        font-weight: normal;
+        color: var(--berry-text-gray);
+    }
+}
+
+.required {
+    color: #c00;
+}
+
+.comment-notes {
+    font-size: 12px;
+    color: var(--berry-text-gray);
+}
+
+.comment-body {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    position: relative;
+}
+
+.comment {
+    .avatar {
+        border-radius: 100%;
+        float: left;
+        margin-right: 8px;
+    }
+
+    .says {
+        display: none;
+    }
+
+    .fn {
+        line-height: 1.2;
+        display: inline-block;
+        font-weight: normal;
+        padding-top: 3px;
+        font-size: 14px;
+        color: var(--berry-main-color);
+    }
+
+    .reply {
+    }
+}
+
+.comment-metadata {
+    font-size: 12px;
+    color: var(--berry-text-gray-lightest);
+}
+
+.comment-content {
+    font-size: 14px;
+    color: var(--berry-text-light);
+}
+
+.comment-reply-link {
+    color: var(--berry-main-color);
+    border-radius: 3px;
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+.comment-meta {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.depth-1 {
+    & > .children {
+        margin-left: 50px;
+        border-left: 3px solid var(--berry-border-color-light);
+        padding-left: 20px;
+        .avatar {
+            width: 32px;
+            height: 32px;
+        }
+
+        .comment {
+            &:first-child {
+                .comment-body {
+                    padding-top: 10px;
+                }
+            }
+
+            &:last-child {
+                .comment-body {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+.children {
+    .comment-body {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.comment-author {
+    line-height: 1.4;
+}
+
+.comment-form {
+    label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    textarea {
+        box-sizing: border-box;
+        padding: 15px;
+        width: 100%;
+        resize: none;
+        background-color: #fff;
+        border: 1px solid var(--berry-border-color-light);
+        border-radius: 3px;
+        color: var(--berry-text-gray);
+        font-size: 14px;
+    }
+
+    .submit {
+        display: inline-block;
+        background-color: var(--berry-main-color);
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 25px;
+        border: 0;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    input[type='email'],
+    input[type='text'],
+    input[type='url'] {
+        width: 300px;
+        border-radius: 3px;
+        border: 1px solid var(--berry-border-color-light);
+        line-height: 28px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: var(--berry-text-gray);
+        font-size: 14px;
+    }
+
+    .comment-form-cookies-consent {
+        label {
+            display: inline;
+        }
+    }
+}
+
+.comment-list {
+    // border-top: 1px solid var(--berry-border-color-light);
+}
+
+.screen-reader-text {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+.comments-pagination {
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    .page-numbers {
+        background: var(--berry-main-color);
+        border: 1px solid var(--berry-main-color);
+        border-radius: 3px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 1;
+        padding: 5px 8px;
+        margin: 0 5px;
+    }
+}
+
+.logged-in-as {
+    font-size: 12px;
+    color: var(--berry-text-gray);
+}
+
+.comment-respond {
+    padding-top: 30px;
+}
+
+.comment--parent__link {
+    margin-right: 5px;
+    color: var(--berry-main-color);
+}
