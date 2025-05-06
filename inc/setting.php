@@ -348,12 +348,12 @@ $berrySetting = new berrySetting(
                     //     'label' => __('Like info', 'Berry'),
                     //     'description' => __('Enable like info in homepage', 'Berry')
                     // ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'home_image_count',
-                    //     'label' => __('Image count', 'Berry'),
-                    //     'description' => __('Show image count of the post', 'Berry')
-                    // ],
+                    [
+                        'type' => 'switch',
+                        'name' => 'home_image_count',
+                        'label' => __('Image count', 'Berry'),
+                        'description' => __('Show image count of the post', 'Berry')
+                    ],
                     [
                         'type' => 'switch',
                         'name' => 'hide_home_cover',

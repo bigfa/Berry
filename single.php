@@ -1,14 +1,28 @@
 <?php get_header(); ?>
 <?php while (have_posts()) : the_post(); ?>
-    <section class="container" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <section class="container u-relative" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <div class="author--card">
+            <div class="author--card__avatar">
+                <?php echo get_avatar(get_the_author_meta('ID'), 64); ?>
+            </div>
+            <div class="author--card__info">
+                <h4 class="author--card__name">
+                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="link link--primary"><?php the_author(); ?></a>
+                </h4>
+                <p class="author--card__desc">
+                    <?php echo get_the_author_meta('description', get_the_author_meta('ID')); ?>
+                </p>
+            </div>
+        </div>
         <div class="block-postMetaWrap">
+            <?php do_action('marker_pro_flag'); ?>
             <div class="">
                 <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>" class="humane--time">
                     <?php echo get_the_date('m d,Y'); ?>
                 </time>
+                <span class="sep"></span>
+                <?php the_category(',') ?>
             </div>
-            <span class="sep"></span>
-            <?php the_category(',') ?>
             <div class="post--meta">
                 <?php if (get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true)) : ?>
                     <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true); ?> Likes
@@ -29,7 +43,20 @@
             'pagelink'    => '%',
             'separator'   => '<span class="screen-reader-text">, </span>',
         )); ?>
-        <?php echo get_the_tag_list('<div class="tag-list">', '', '</div>'); ?>
+        <?php
+        $tags = get_the_tags();
+        if ($tags) {
+            echo '<div class="tag-list">';
+            foreach ($tags as $tag) {
+                echo '<a href="' . get_tag_link($tag->term_id) . '" class="tag-list--item"><svg viewBox="0 0 24 24" width="24" height="24">
+            <g fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path d="M6.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />
+                <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592-5.592a2.41 2.41 0 0 0 0-3.408l-7.71-7.71A2 2 0 0 0 11.172 3H6a3 3 0 0 0-3 3" />
+            </g>
+        </svg>'  . $tag->name . '</a>';
+            }
+            echo '</div>';
+        } ?>
         <?php $categories = get_the_category();
         $category = $categories[0];
         ?>
@@ -62,6 +89,7 @@
                 </button>
             </div>
         </div>
+        <?php get_template_part('template-part/post', 'navigation'); ?>
         <?php
         if (comments_open() || get_comments_number()) :
             comments_template();

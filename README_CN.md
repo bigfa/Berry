@@ -2,7 +2,14 @@
 
 ![](https://static.fatesinger.com/2025/04/mv8cmjgi7mczjkoc.png)
 
-## Changelog
+## 更新日志
+
+### 2.0.2
+
+- 增加首页文章数量
+- 增加文章标签图标
+- 增加文章作者信息
+- 增加文章导航
 
 ### 2.0.1
 

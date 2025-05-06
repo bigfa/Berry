@@ -4,6 +4,13 @@
 
 ## Changelog
 
+### 2.0.2
+
+- add home image post count
+- add post tag icon
+- add author card
+- add post navigation
+
 ### 2.0.1
 
 - update translation

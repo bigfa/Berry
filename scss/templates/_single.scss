@@ -125,6 +125,7 @@
         grid-gap: 8px;
         margin-bottom: 0;
         padding-bottom: 5px;
+        position: relative;
 
         .block--image {
             /* straggle image */
@@ -319,5 +320,124 @@
         -webkit-box-align: center;
         -webkit-box-direction: normal;
         -webkit-box-flex: 1;
+    }
+}
+
+.author--card {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    padding-top: 80px;
+    max-width: 170px;
+
+    &__avatar {
+        display: flex;
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+        margin-bottom: 5px;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.4;
+        a {
+            &:hover {
+                color: var(--berry-hover-color);
+            }
+        }
+    }
+
+    &__desc {
+        font-size: 14px;
+        color: var(--berry-text-gray-lightest);
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 1180px) {
+    .author--card {
+        display: none;
+    }
+}
+
+.post-navigation {
+    .article + & {
+        margin-top: 10px;
+    }
+
+    display: flex;
+    justify-content: space-between;
+
+    .nav-previous,
+    .nav-next {
+        width: 49%;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover {
+            border-radius: 8px;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        text-align: right;
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        border: 1px solid transparent;
+
+        .cover--link {
+            position: relative;
+            .marker--tips {
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                background-color: #f8f8f8;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 12px;
+                color: var(--berry-text-gray);
+                line-height: 1;
+            }
+        }
+    }
+
+    .nav-previous {
+        text-align: left;
+    }
+
+    .meta-nav {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--berry-text-gray);
+    }
+
+    .post-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        &:hover {
+            color: var(--berry-hover-color);
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .post-navigation {
+        flex-direction: column;
+
+        .nav-previous,
+        .nav-next {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
     }
 }
