@@ -2,10 +2,10 @@
 <?php while (have_posts()) : the_post(); ?>
     <main class="main-content">
         <section class="container" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <h2 class="block-title">
+            <h2 class="block-title" itemprop="headline">
                 <?php the_title(); ?>
             </h2>
-            <div class="grap">
+            <div class="grap" itemprop="articleBody">
                 <?php the_content(); ?>
             </div>
             <?php wp_link_pages(array(

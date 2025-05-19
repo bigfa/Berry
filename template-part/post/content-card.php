@@ -16,7 +16,7 @@
     <div class="articleRelated__item" itemscope="itemscope" itemtype="http://schema.org/Article">
         <a href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
             <?php if (berry_get_post_image_count(get_the_ID()) > 0) : ?>
-                <div class="block--images">
+                <div class="block--images block--images--<?php echo berry_get_post_image_count(get_the_ID()); ?>">
                     <?php $images = berry_get_post_images(get_the_ID(), 3);
                     if ($images) {
                         foreach ($images as $image) {

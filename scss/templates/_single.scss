@@ -4,15 +4,24 @@
     justify-content: center;
     align-items: center;
     padding-top: 30px;
+    padding-bottom: 30px;
     .postFooter-author,
     .postFooter-collection {
-        margin-top: 10px;
+        margin-bottom: 5px;
         font-size: 18px;
         font-weight: 700;
+        a {
+            &:hover {
+                color: var(--berry-hover-color);
+            }
+        }
     }
     .postFooter-info,
     .postFooter-translators {
         font-size: 14px;
+        color: var(--berry-text-gray);
+        padding: 0 20%;
+        line-height: 1.4;
     }
 }
 
@@ -97,7 +106,7 @@
     &__item {
         padding: 10px;
         border-radius: 8px;
-        background-color: #f0f0f0;
+        background-color: var(--berry-background-gray-light);
 
         &__title {
             font-size: 16px;
@@ -146,7 +155,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
     .postFooter-action {
         margin-right: 10px;
         font-size: 14px;
@@ -231,6 +240,7 @@
 
     ul {
         padding-left: 5px;
+        margin-bottom: 0;
     }
 }
 

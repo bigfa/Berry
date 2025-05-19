@@ -14,8 +14,8 @@
     <?php endwhile; ?>
     <div class="postsFooterNav">
         <?php the_posts_pagination(array(
-            'prev_text' => 'Previous page',
-            'next_text' => 'Next page',
+            'prev_text' => __('Prev page', 'Berry'),
+            'next_text' => __('Next page', 'Berry'),
             'prev_next' => false,
             'before_page_number' => '',
         )); ?>

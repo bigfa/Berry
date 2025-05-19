@@ -3,10 +3,11 @@ if (post_password_required())
     return;
 ?>
 <div id="comments" class="comments-area">
+
+    <h2 class="comments-title">
+        <?php printf(_nx('One comment', '%1$s comments', get_comments_number(), 'comments title', 'Berry'), number_format_i18n(get_comments_number())); ?>
+    </h2>
     <?php if (have_comments()) : ?>
-        <h2 class="comments-title">
-            <?php printf(_nx('One comment', '%1$s comments', get_comments_number(), 'comments title', 'Berry'), number_format_i18n(get_comments_number())); ?>
-        </h2>
         <ol class="comment-list commentlist">
             <?php
             wp_list_comments(array(
@@ -23,6 +24,10 @@ if (post_password_required())
             'next_text' => __('Next', 'Berry'),
             'prev_next' => false,
         )); ?>
+    <?php else : ?>
+        <ol class="comment-list commentlist">
+            <li class="no-comments"><?php _e('No comment.', 'Berry'); ?></;>
+        </ol>
     <?php endif; ?>
     <?php comment_form(); ?>
 </div>

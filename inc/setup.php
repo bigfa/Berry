@@ -21,7 +21,7 @@ class berryBase
         register_nav_menu('berry', __('Primary Menu', 'Berry'));
         add_theme_support('post-formats', array('status'));
         add_filter('pre_option_link_manager_enabled', '__return_true');
-        add_action('widgets_init', array($this, 'widgets_init'));
+        // add_action('widgets_init', array($this, 'widgets_init'));
         add_action('wp_head', array($this, 'head_output'), 11);
         add_action('edit_category_form_fields', array($this, 'add_category_cover_form_item'));
         add_action('edited_terms', array($this, 'update_my_category_fields'));

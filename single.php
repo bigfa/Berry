@@ -38,7 +38,7 @@
             <?php the_content(); ?>
         </div>
         <?php wp_link_pages(array(
-            'before'      => '<div class="nav-links nav-links__comment">',
+            'before'      => '<div class="nav-links comments-pagination">',
             'after'       => '</div>',
             'pagelink'    => '%',
             'separator'   => '<span class="screen-reader-text">, </span>',
@@ -70,7 +70,7 @@
                 <a href="<?php echo get_term_link($category); ?>" class="link link--primary"><?php echo $category->name; ?></a>
             </h4>
             <div class="postFooter-info">
-                Written by <strong><a href="" class="link link--primary"><?php the_author(); ?></a></strong>
+                <?php echo $category->description; ?>
             </div>
             <div class="postFooter-actions">
                 <button class="button--like like-btn" aria-label="like the post">

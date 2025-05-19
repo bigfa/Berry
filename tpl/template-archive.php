@@ -4,7 +4,7 @@ Template Name: 文章归档模版
 */
 ?>
 <?php get_header(); ?>
-<div class="layoutSingleColumn layoutSingleColumn--wide container">
+<div class="container">
     <header class="page-archive-header">
         <h1 class="page-archive-title"><?php the_title(); ?></h1>
     </header>

@@ -4,6 +4,11 @@
 
 ## Changelog
 
+### 2.0.3
+
+- add search
+- add sns icons
+
 ### 2.0.2
 
 - add home image post count

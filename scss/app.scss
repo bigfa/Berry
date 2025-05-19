@@ -140,10 +140,16 @@
     }
 }
 
+.year-title {
+    margin-top: 30px;
+    color: var(--berry-text-gray);
+    font-size: 24px;
+}
+
 .month-title {
     font-size: 20px;
     font-weight: 700;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 

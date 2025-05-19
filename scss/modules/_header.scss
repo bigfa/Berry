@@ -1,6 +1,12 @@
 .site-header {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     position: relative;
+
+    .bar {
+        display: flex;
+        align-items: center;
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -48,4 +54,34 @@
 .site-description {
     font-size: 18px;
     color: var(--berry-text-gray);
+}
+
+.inputGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+        fill: rgba(0, 0, 0, 0.54);
+    }
+
+    .textInput {
+        display: inline-block;
+        vertical-align: middle;
+        width: 1px;
+        height: 37px;
+        border: none;
+        font-size: 14px;
+        transition: width 0.2s, padding 0.2s;
+        cursor: pointer;
+        padding-left: 1px;
+        padding-right: 0;
+
+        &:focus {
+            padding-left: 10px;
+            width: 200px;
+            cursor: text;
+        }
+    }
 }

@@ -13,8 +13,9 @@
         margin: 0px 0 15px;
         padding: 20px;
         background-color: var(--berry-background-gray-light);
-        border-left: 4px solid var(--berry-main-color);
         color: var(--berry-text-gray);
+        border-radius: 5px;
+
         p {
             &:last-child {
                 margin-bottom: 0;
@@ -88,11 +89,11 @@
     }
 
     ol {
-        counter-reset: a;
+        counter-reset: order;
         & > li {
             &::before {
-                content: counter(a, decimal) '.';
-                counter-increment: a;
+                content: counter(order, decimal) '.';
+                counter-increment: order;
                 padding-right: 12px;
             }
         }
@@ -115,6 +116,48 @@
         overflow-x: auto;
     }
 
+    table {
+        border: 1px solid var(--berry-border-color);
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+        color: var(--berry-text-light);
+
+        thead {
+            tr {
+                background-color: #f5f5f5;
+            }
+        }
+
+        tr {
+            background-color: #fff;
+
+            &:hover {
+                & > td {
+                    background-color: #f5f5f5;
+                    background-clip: padding-box;
+                }
+            }
+        }
+
+        td,
+        th {
+            border-bottom: 1px solid var(--berry-border-color);
+            border-right: 1px solid var(--berry-border-color);
+            transition: background-color 0.25s ease;
+            height: 40px;
+            min-width: 0;
+            box-sizing: border-box;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            position: relative;
+            margin: 0;
+            padding: 0 10px;
+        }
+    }
+
     &--figure {
         margin-bottom: 15px;
         display: flex;
@@ -135,6 +178,10 @@
 
     figure {
         max-width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .wp-caption {
             font-size: 14px;
