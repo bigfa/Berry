@@ -4,6 +4,10 @@
 
 ## Changelog
 
+### 2.0.6
+
+- fixed social icons link errro
+
 ### 2.0.5
 
 - update translation
