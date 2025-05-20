@@ -4,6 +4,10 @@
 
 ## Changelog
 
+### 2.0.8
+
+- style inhancement
+
 ### 2.0.7
 
 - style inhancement

@@ -3,7 +3,7 @@
     <section class="error-404 not-found">
         404
     </section>
-    <h3 class="related--posts__title"><?php _e('Random Posts', 'Farallon'); ?></h3>
+    <h3 class="related--posts__title"><?php _e('Random Posts', 'Berry'); ?></h3>
     <div class="articleRelated">
         <?php
         $the_query = new WP_Query(array(

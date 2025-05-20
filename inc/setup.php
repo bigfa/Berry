@@ -21,7 +21,6 @@ class berryBase
         register_nav_menu('berry', __('Primary Menu', 'Berry'));
         add_theme_support('post-formats', array('status'));
         add_filter('pre_option_link_manager_enabled', '__return_true');
-        // add_action('widgets_init', array($this, 'widgets_init'));
         add_action('wp_head', array($this, 'head_output'), 11);
         add_action('edit_category_form_fields', array($this, 'add_category_cover_form_item'));
         add_action('edited_terms', array($this, 'update_my_category_fields'));
@@ -193,40 +192,6 @@ class berryBase
         echo $ogmeta;
     }
 
-    function widgets_init()
-    {
-
-        register_sidebar(array(
-            'name'          => __('Homepage Top', 'Berry'),
-            'id'            => 'topbar',
-            'description'   => __('Homepage Top', 'Berry'),
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="heading-title">',
-            'after_title'   => '</h3>',
-        ));
-
-        register_sidebar(array(
-            'name'          => __('Homepage Bottom', 'Berry'),
-            'id'            => 'footerbar',
-            'description'   => __('Homepage Bottom', 'Berry'),
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="heading-title">',
-            'after_title'   => '</h3>',
-        ));
-
-        register_sidebar(array(
-            'name'          => __('Single Pgae Bottom', 'Berry'),
-            'id'            => 'singlefooterbar',
-            'description'   => __('Single Pgae Bottom', 'Berry'),
-            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</aside>',
-            'before_title'  => '<h3 class="heading-title">',
-            'after_title'   => '</h3>',
-        ));
-    }
-
     function custom_excerpt_length($excerpt)
     {
         if (has_excerpt()) {
@@ -275,10 +240,6 @@ class berryBase
         wp_enqueue_style('berry-style', get_template_directory_uri() . '/build/css/app.min.css', array(), BERRY_VERSION, 'all');
         if ($berrySetting->get_setting('css')) {
             wp_add_inline_style('berry-style', $berrySetting->get_setting('css'));
-        }
-
-        if ($berrySetting->get_setting('banner')) {
-            wp_add_inline_style('berry-style', '.site-header{background-image:url(' . $berrySetting->get_setting('banner') . ');}');
         }
 
         if ($berrySetting->get_setting('disable_block_css')) {

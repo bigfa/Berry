@@ -1,8 +1,12 @@
 <?php global $berrySetting; ?>
 <footer class="site-footer">
     <div class="container">
-        Made with
-        <span class="cute">♥</span>
+        <?php if ($berrySetting->get_setting('copyright')) : ?>
+            <?php echo $berrySetting->get_setting('copyright'); ?>
+        <?php else : ?>
+            Made with
+            <span class="cute">♥</span>
+        <?php endif; ?>
     </div>
 </footer>
 </div>
