@@ -4,6 +4,10 @@
 
 ## Changelog
 
+### 2.0.5
+
+- update translation
+
 ### 2.0.4
 
 - add settings
