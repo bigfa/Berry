@@ -372,12 +372,12 @@ $berrySetting = new berrySetting(
             [
                 'id' => 'singluar',
                 'content' => [
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'bio',
-                    //     'label' => __('Author bio', 'Berry'),
-                    //     'description' => __('Enable author bio', 'Berry')
-                    // ],
+                    [
+                        'type' => 'switch',
+                        'name' => 'bio',
+                        'label' => __('Author bio', 'Berry'),
+                        'description' => __('Enable author bio', 'Berry')
+                    ],
                     // [
                     //     'type' => 'switch',
                     //     'name' => 'author_sns',
@@ -408,12 +408,12 @@ $berrySetting = new berrySetting(
                         'label' => __('Copy link', 'Berry'),
                         'description' => __('Enable copy link', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'category_card',
-                    //     'label' => __('Category card', 'Berry'),
-                    //     'description' => __('Show post category info after post.', 'Berry')
-                    // ],
+                    [
+                        'type' => 'switch',
+                        'name' => 'category_card',
+                        'label' => __('Category card', 'Berry'),
+                        'description' => __('Show post category info after post.', 'Berry')
+                    ],
                     [
                         'type' => 'switch',
                         'name' => 'show_parent',
@@ -474,30 +474,30 @@ $berrySetting = new berrySetting(
                 'id' => 'meta',
                 'docs' => 'https://docs.wpista.com/config/sns.html',
                 'content' => [
-                    [
-                        'type' => 'switch',
-                        'name' => 'footer_sns',
-                        'label' => __('Footer SNS Icons', 'Berry'),
-                        'description' => __('Show sns icons in footer, if this setting is on, the footer menu won\',t be displayed.', 'Berry')
-                    ],
+                    // [
+                    //     'type' => 'switch',
+                    //     'name' => 'footer_sns',
+                    //     'label' => __('Footer SNS Icons', 'Berry'),
+                    //     'description' => __('Show sns icons in footer, if this setting is on, the footer menu won\',t be displayed.', 'Berry')
+                    // ],
                     [
                         'type' => 'input',
                         'name' => 'telegram',
                         'label' => __('Telegram', 'Berry'),
                         'description' => __('Telegram link', 'Berry')
                     ],
-                    [
-                        'type' => 'input',
-                        'name' => 'email',
-                        'label' => __('Email', 'Berry'),
-                        'description' => __('Your email address', 'Berry')
-                    ],
-                    [
-                        'type' => 'input',
-                        'name' => 'instagram',
-                        'label' => __('Instagram', 'Berry'),
-                        'description' => __('Instagram link', 'Berry')
-                    ],
+                    // [
+                    //     'type' => 'input',
+                    //     'name' => 'email',
+                    //     'label' => __('Email', 'Berry'),
+                    //     'description' => __('Your email address', 'Berry')
+                    // ],
+                    // [
+                    //     'type' => 'input',
+                    //     'name' => 'instagram',
+                    //     'label' => __('Instagram', 'Berry'),
+                    //     'description' => __('Instagram link', 'Berry')
+                    // ],
                     [
                         'type' => 'input',
                         'name' => 'twitter',
@@ -510,24 +510,24 @@ $berrySetting = new berrySetting(
                         'label' => __('RSS', 'Berry'),
                         'description' => __('RSS link', 'Berry')
                     ],
-                    [
-                        'type' => 'input',
-                        'name' => 'github',
-                        'label' => __('Github', 'Berry'),
-                        'description' => __('Github link', 'Berry')
-                    ],
-                    [
-                        'type' => 'input',
-                        'name' => 'discord',
-                        'label' => __('Discord', 'Berry'),
-                        'description' => __('Discord link', 'Berry')
-                    ],
-                    [
-                        'type' => 'input',
-                        'name' => 'mastodon',
-                        'label' => __('Mastodon', 'Berry'),
-                        'description' => __('Mastodon link', 'Berry')
-                    ],
+                    // [
+                    //     'type' => 'input',
+                    //     'name' => 'github',
+                    //     'label' => __('Github', 'Berry'),
+                    //     'description' => __('Github link', 'Berry')
+                    // ],
+                    // [
+                    //     'type' => 'input',
+                    //     'name' => 'discord',
+                    //     'label' => __('Discord', 'Berry'),
+                    //     'description' => __('Discord link', 'Berry')
+                    // ],
+                    // [
+                    //     'type' => 'input',
+                    //     'name' => 'mastodon',
+                    //     'label' => __('Mastodon', 'Berry'),
+                    //     'description' => __('Mastodon link', 'Berry')
+                    // ],
                     [
                         'type' => 'textarea',
                         'name' => 'custom_sns',

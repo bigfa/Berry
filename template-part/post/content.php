@@ -29,8 +29,15 @@
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a>
     </h2>
     <div class="block-snippet block-snippet--subtitle grap">
-        <p itemprop="about"><?php echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 380, "...");
-                            ?></p>
+        <p itemprop="about">
+            <?php
+            if (has_excerpt()) {
+                echo get_the_excerpt();
+            } else {
+                echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 380, "...");
+            }
+            ?>
+        </p>
         <?php if (!$berrySetting->get_setting('hide_home_cover') && berry_get_post_image_count(get_the_ID()) > 0) : ?>
             <div class="block--images<?php if (berry_get_post_image_count(get_the_ID()) > 3 && $berrySetting->get_setting('home_image_count')) echo ' block--images__withcount'; ?>" data-count="<?php echo berry_get_post_image_count(get_the_ID()); ?>">
                 <?php $images = berry_get_post_images(get_the_ID(), 3);

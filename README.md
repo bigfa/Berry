@@ -4,6 +4,11 @@
 
 ## Changelog
 
+### 2.0.4
+
+- add settings
+- add map template
+
 ### 2.0.3
 
 - add search

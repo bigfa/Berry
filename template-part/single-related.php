@@ -1,4 +1,4 @@
-<h3 class="related--posts__title"><?php _e('Related Posts', 'Farallon'); ?></h3>
+<h3 class="related--posts__title"><?php _e('Related Posts', 'Berry'); ?></h3>
 <div class="articleRelated">
     <?php
     // get same format related posts

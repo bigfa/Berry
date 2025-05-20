@@ -171,10 +171,12 @@
         border: 0;
         background-color: rgba(0, 0, 0, 0);
         cursor: pointer;
+        display: flex;
+        align-items: center;
 
         &.is-active {
             svg {
-                fill: var(--coffin-main-color);
+                fill: var(--berry-main-color);
             }
 
             .icon--active {
@@ -197,13 +199,13 @@
 
     .button--like {
         svg {
-            fill: var(--farallon-text-gray);
+            fill: var(--berry-text-gray);
         }
 
         &:hover,
         &.is-active {
             svg {
-                fill: var(--farallon-hover-color);
+                fill: var(--berry-hover-color);
             }
         }
     }
@@ -271,9 +273,10 @@
 
         border-radius: 5px;
         background-color: var(--berry-background-gray-light);
-        padding: 8px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
+        font-size: 14px;
 
         .sitename {
             font-size: 12px;
