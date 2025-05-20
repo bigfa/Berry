@@ -5,7 +5,7 @@
             <h2 class="block-title" itemprop="headline">
                 <?php the_title(); ?>
             </h2>
-            <div class="grap" itemprop="articleBody">
+            <div class="grap min-height-100" itemprop="articleBody">
                 <?php the_content(); ?>
             </div>
             <?php wp_link_pages(array(

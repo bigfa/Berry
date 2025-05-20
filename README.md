@@ -4,6 +4,10 @@
 
 ## Changelog
 
+### 2.0.7
+
+- style inhancement
+
 ### 2.0.6
 
 - fixed social icons link errro

@@ -210,6 +210,13 @@ svg:not(:root) {
     }
 }
 
+@media (max-width: 600px) {
+    .pagination {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
 .u-flex {
     display: flex;
     align-items: center;
