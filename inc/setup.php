@@ -266,22 +266,6 @@ class berryBase
                 'is_archive' => is_archive(),
                 'archive_id' => get_queried_object_id(),
                 'hide_home_cover' => !!$berrySetting->get_setting('hide_home_cover'),
-                'timeFormat' => [
-                    'second' => __('second ago', 'Berry'),
-                    'seconds' => __('seconds ago', 'Berry'),
-                    'minute' => __('minute ago', 'Berry'),
-                    'minutes' => __('minutes ago', 'Berry'),
-                    'hour' => __('hour ago', 'Berry'),
-                    'hours' => __('hours ago', 'Berry'),
-                    'day' => __('day ago', 'Berry'),
-                    'days' => __('days ago', 'Berry'),
-                    'week' => __('week ago', 'Berry'),
-                    'weeks' => __('weeks ago', 'Berry'),
-                    'month' => __('month ago', 'Berry'),
-                    'months' => __('months ago', 'Berry'),
-                    'year' => __('year ago', 'Berry'),
-                    'years' => __('years ago', 'Berry'),
-                ]
             ]
         );
         if ($berrySetting->get_setting('javascript')) {

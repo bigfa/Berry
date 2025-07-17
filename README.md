@@ -4,6 +4,12 @@
 
 ## Changelog
 
+### 2.0.9
+
+- style enhancement
+- update translation
+- use php time format
+
 ### 2.0.8
 
 - style inhancement

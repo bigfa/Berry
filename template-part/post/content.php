@@ -11,8 +11,8 @@
         <?php endif; ?>
         <?php do_action('marker_pro_flag'); ?>
         <div class="">
-            <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>" class="humane--time">
-                <?php echo get_the_date('m d,Y'); ?>
+            <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>">
+                <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
             </time>
             <span class="sep"></span>
             <?php the_category(',') ?>
