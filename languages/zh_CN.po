@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Berry 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/Berry\n"
 "POT-Creation-Date: 2025-03-19T15:41:49+00:00\n"
-"PO-Revision-Date: 2025-07-17 17:34+0800\n"
+"PO-Revision-Date: 2025-07-29 00:09+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -62,6 +62,14 @@ msgstr "后一页"
 #: inc/comment.php:85
 msgid "Author"
 msgstr "作者"
+
+#: inc/base.php:151
+msgid "1 min read"
+msgstr "1 分钟阅读"
+
+#: inc/base.php:153
+msgid "%d min read"
+msgstr "%d 分钟阅读"
 
 #: inc/comment.php:143 inc/comment.php:162 inc/comment.php:192
 #: inc/comment.php:205 inc/comment.php:231 inc/setting.php:28

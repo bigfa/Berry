@@ -9,6 +9,8 @@
                 <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>">
                     <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
                 </time>
+                <span class="sep"></span>
+                <?php echo berry_get_post_read_time_text(get_the_ID()); ?>
             </div>
         </a>
     </div>
@@ -33,6 +35,8 @@
                 <time datetime="<?php echo get_the_date('c'); ?>">
                     <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
                 </time>
+                <span class="sep"></span>
+                <?php echo berry_get_post_read_time_text(get_the_ID()); ?>
             </div>
         </a>
     </div>

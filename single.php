@@ -26,6 +26,8 @@ global $berrySetting;
                 </time>
                 <span class="sep"></span>
                 <?php the_category(',') ?>
+                <span class="sep"></span>
+                <?php echo berry_get_post_read_time_text(get_the_ID()); ?>
             </div>
             <div class="post--meta">
                 <?php if (get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true)) : ?>
