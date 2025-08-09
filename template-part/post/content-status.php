@@ -3,7 +3,7 @@
         <header>
             <?php echo get_avatar(get_the_author_meta('ID'), 48); ?>
             <a itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>" href="<?php the_permalink(); ?>" aria-label="<?php the_title(); ?>">
-                <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
+                <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __(' ago', 'Berry'); ?>
             </a>
         </header>
         <?php if (get_the_excerpt()) : ?>

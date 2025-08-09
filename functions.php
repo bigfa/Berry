@@ -1,6 +1,5 @@
 <?php
 define('BERRY_VERSION', wp_get_theme()->get('Version'));
-define('BERRY_DEBUG', false);
 define('BERRY_SETTING_KEY', 'berry_setting');
 define('BERRY_ARCHIVE_VIEW_KEY', 'berry_archive_view');
 define('BERRY_POST_LIKE_KEY', 'berry_post_like');

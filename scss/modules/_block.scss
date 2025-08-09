@@ -1,0 +1,96 @@
+.bBlock {
+    &--list {
+        padding-top: 0;
+    }
+
+    &--item {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    &--header {
+        color: var(--berry-text-gray-lightest);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+
+        .flag {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        .post--meta {
+            margin-left: auto;
+            text-transform: uppercase;
+        }
+
+        a {
+            transition: 0.5s;
+            &:hover {
+                color: var(--berry-text-color);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &--title {
+        font-size: 26px;
+        line-height: 1.4;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        font-weight: 700;
+
+        a {
+            &:hover {
+                color: var(--berry-hover-color);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &---snippet {
+        font-size: 16px;
+        color: var(--berry-text-light);
+    }
+
+    &--images {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        margin-bottom: 15px;
+        position: relative;
+
+        &__withcount {
+            &::before {
+                content: '+' attr(data-count);
+                color: rgba(255, 255, 255, 0.95);
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(0, 0, 0, 0.5);
+                text-align: center;
+                line-height: 50px;
+                border-radius: 100%;
+                transform: translate3d(50%, -50%, 0);
+                font-size: 20px;
+
+                @media (max-width: 768px) {
+                    font-size: 12px;
+                    width: 32px;
+                    height: 32px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+
+    &--image {
+        border-radius: 5px;
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1 / 0.67;
+    }
+}

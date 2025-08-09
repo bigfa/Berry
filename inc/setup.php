@@ -136,7 +136,7 @@ class berryBase
             $toc .= str_repeat('</li></ul>', $previous_level - 2);
             $toc .= '</ul>';
 
-            $content = '<details class="berry--toc" open><summary>' . __('Table of content', 'Berry') . '</summary>' . $toc . '</details>' . $content;
+            $content = '<details class="bArticle--toc" open><summary>' . __('Table of content', 'Berry') . '</summary>' . $toc . '</details>' . $content;
         }
 
         return $content;
@@ -266,6 +266,10 @@ class berryBase
                 'is_archive' => is_archive(),
                 'archive_id' => get_queried_object_id(),
                 'hide_home_cover' => !!$berrySetting->get_setting('hide_home_cover'),
+                'comment_success_text' => __('Comment submitted successfully!', 'Berry'),
+                'now_text' => __('Just now', 'Berry'),
+                'copy_success_text' => __('Link copied to clipboard!', 'Berry'),
+                'like_success_text' => __('Thanks for your like!', 'Berry'),
             ]
         );
         if ($berrySetting->get_setting('javascript')) {

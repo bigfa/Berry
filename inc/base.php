@@ -101,7 +101,7 @@ function get_the_link_items($id = null)
         }
         $output .= '</div>';
     } else {
-        $output = __('No links yet', 'Hera');
+        $output = __('No links yet', 'Berry');
     }
     return $output;
 }

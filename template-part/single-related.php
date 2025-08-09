@@ -1,5 +1,5 @@
-<h3 class="related--posts__title"><?php _e('Related Posts', 'Berry'); ?></h3>
-<div class="articleRelated">
+<h3 class="bRelated--heroTitle"><?php _e('Related Posts', 'Berry'); ?></h3>
+<div class="bRelated--list">
     <?php
     // get same format related posts
     $the_query = new WP_Query(array(

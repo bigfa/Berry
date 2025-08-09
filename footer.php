@@ -1,6 +1,6 @@
 <?php global $berrySetting; ?>
-<footer class="site-footer">
-    <div class="container">
+<footer class="bFooter">
+    <div class="bFooter--content">
         <?php if ($berrySetting->get_setting('copyright')) : ?>
             <?php echo $berrySetting->get_setting('copyright'); ?>
         <?php else : ?>

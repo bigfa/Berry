@@ -4,14 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Berry 2.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/Berry\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2025-08-09T08:47:32+00:00\n"
+"PO-Revision-Date: 2025-08-09 16:48+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-08-09T16:03:08+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.6\n"
 "X-Domain: Berry\n"
 
 #. Theme Name of the theme
@@ -43,15 +45,11 @@ msgstr ""
 msgid "Random Posts"
 msgstr ""
 
-#: archive.php:16
-#: category.php:19
-#: index.php:10
+#: archive.php:16 category.php:19 index.php:10
 msgid "Prev page"
 msgstr ""
 
-#: archive.php:17
-#: category.php:20
-#: index.php:11
+#: archive.php:17 category.php:20 index.php:11
 msgid "Next page"
 msgstr ""
 
@@ -60,7 +58,6 @@ msgctxt "comments title"
 msgid "One comment"
 msgid_plural "%1$s comments"
 msgstr[0] ""
-msgstr[1] ""
 
 #: comments.php:15
 msgid "Reply"
@@ -70,17 +67,12 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: comments.php:23
-#: template-part/post-navigation.php:28
+#: comments.php:23 template-part/post-navigation.php:28
 msgid "Next"
 msgstr ""
 
-#: comments.php:31
+#: comments.php:28
 msgid "No comment."
-msgstr ""
-
-#: inc/base.php:104
-msgid "No links yet"
 msgstr ""
 
 #: inc/base.php:151
@@ -95,38 +87,29 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: inc/comment.php:143
-#: inc/comment.php:162
-#: inc/comment.php:192
-#: inc/comment.php:205
-#: inc/comment.php:231
-#: inc/setting.php:28
+#: inc/comment.php:143 inc/comment.php:162 inc/comment.php:192
+#: inc/comment.php:205 inc/comment.php:231 inc/setting.php:28
 msgid "Success"
 msgstr ""
 
-#: inc/comment.php:275
-#: template-part/post/content-card.php:10
+#: inc/comment.php:275 template-part/post/content-card.php:10
 #: template-part/post/content-status.php:6
 msgid "ago"
 msgstr ""
 
-#: inc/setting.php:47
-#: inc/setup.php:228
+#: inc/setting.php:47 inc/setup.php:228
 msgid "Setting saved success!"
 msgstr ""
 
-#: inc/setting.php:48
-#: inc/setup.php:229
+#: inc/setting.php:48 inc/setup.php:229
 msgid "Upload Image"
 msgstr ""
 
-#: inc/setting.php:56
-#: inc/setting.php:62
+#: inc/setting.php:56 inc/setting.php:62
 msgid "Theme Setting"
 msgstr ""
 
-#: inc/setting.php:63
-#: inc/setting.php:86
+#: inc/setting.php:63 inc/setting.php:86
 msgid "Documentation"
 msgstr ""
 
@@ -167,7 +150,9 @@ msgid "Headcode"
 msgstr ""
 
 #: inc/setting.php:241
-msgid "You can add content to the head tag, such as site verification tags, and so on."
+msgid ""
+"You can add content to the head tag, such as site verification tags, and so "
+"on."
 msgstr ""
 
 #: inc/setting.php:246
@@ -231,7 +216,9 @@ msgid "Upyun CDN"
 msgstr ""
 
 #: inc/setting.php:295
-msgid "Make sure all images are uploaded to Upyun, otherwise thumbnails may not display properly."
+msgid ""
+"Make sure all images are uploaded to Upyun, otherwise thumbnails may not "
+"display properly."
 msgstr ""
 
 #: inc/setting.php:300
@@ -239,7 +226,9 @@ msgid "Aliyun OSS CDN"
 msgstr ""
 
 #: inc/setting.php:301
-msgid "Make sure all images are uploaded to Aliyun OSS, otherwise thumbnails may not display properly."
+msgid ""
+"Make sure all images are uploaded to Aliyun OSS, otherwise thumbnails may "
+"not display properly."
 msgstr ""
 
 #: inc/setting.php:306
@@ -247,7 +236,9 @@ msgid "Qiniu OSS CDN"
 msgstr ""
 
 #: inc/setting.php:307
-msgid "Make sure all images are uploaded to Qiniu OSS, otherwise thumbnails may not display properly."
+msgid ""
+"Make sure all images are uploaded to Qiniu OSS, otherwise thumbnails may not "
+"display properly."
 msgstr ""
 
 #: inc/setting.php:312
@@ -282,8 +273,7 @@ msgstr ""
 msgid "Show image count of the post"
 msgstr ""
 
-#: inc/setting.php:360
-#: inc/setting.php:361
+#: inc/setting.php:360 inc/setting.php:361
 msgid "Hide home cover"
 msgstr ""
 
@@ -343,8 +333,7 @@ msgstr ""
 msgid "Enable show parent comment"
 msgstr ""
 
-#: inc/setting.php:426
-#: inc/setup.php:139
+#: inc/setting.php:426 inc/setup.php:139
 msgid "Table of content"
 msgstr ""
 
@@ -472,10 +461,6 @@ msgstr ""
 msgid "Comment submitted successfully!"
 msgstr ""
 
-#: inc/setup.php:270
-msgid "Just now"
-msgstr ""
-
 #: inc/setup.php:271
 msgid "Link copied to clipboard!"
 msgstr ""
@@ -484,8 +469,7 @@ msgstr ""
 msgid "Thanks for your like!"
 msgstr ""
 
-#: single.php:25
-#: template-part/post/content-card.php:36
+#: single.php:25 template-part/post/content-card.php:36
 #: template-part/post/content.php:15
 msgid " ago"
 msgstr ""

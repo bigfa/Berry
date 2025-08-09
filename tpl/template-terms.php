@@ -6,17 +6,15 @@ get_header(); ?>
 
 <div class="container">
     <?php while (have_posts()) : the_post(); ?>
-        <article class="post--single__douban">
-            <header class="page-archive-header">
-                <h2 class="page-archive-title" itemprop="headline"><?php the_title(); ?></h2>
+        <article class="bArticle">
+            <header class="bArticle--header">
+                <h2 class="bArticle--title" itemprop="headline"><?php the_title(); ?></h2>
             </header>
             <div class="collectionCard">
                 <?php $categories = get_terms([
                     'taxonomy' => 'category',
                     'hide_empty' => false,
-                    // 'orderby' => 'meta_value_num',
                     'order' => 'DESC',
-                    // 'meta_key' => '_views',
                 ]);
                 foreach ($categories as $category) {
                     $link = get_term_link($category, 'category')

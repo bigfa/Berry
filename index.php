@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 <section class="container">
-    <?php while (have_posts()) : the_post(); ?>
-        <?php get_template_part('template-part/post/content', get_post_format()); ?>
-    <?php endwhile; ?>
+    <div class="bBlock--list">
+        <?php while (have_posts()) : the_post(); ?>
+            <?php get_template_part('template-part/post/content', get_post_format()); ?>
+        <?php endwhile; ?>
+    </div>
     <div class="postsFooterNav">
         <?php the_posts_pagination(array(
             'prev_text' => __('Prev page', 'Berry'),

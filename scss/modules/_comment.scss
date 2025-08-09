@@ -1,10 +1,17 @@
-.author-date {
-    font-size: 12px;
-    color: var(--berry-text-gray);
-}
+.bComment {
+    &--area {
+        padding-top: 40px;
+    }
 
-.comments-area {
-    padding-top: 40px;
+    &--heroTitle {
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    &--list {
+        list-style: none;
+    }
 }
 
 .comment-reply-title,
@@ -91,9 +98,15 @@
         border-left: 3px solid var(--berry-border-color-light);
         padding-left: 20px;
         margin-bottom: 15px;
+
         .avatar {
             width: 32px;
             height: 32px;
+        }
+
+        .comment-body {
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         .comment {
@@ -112,99 +125,8 @@
     }
 }
 
-.children {
-    .comment-body {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-}
-
 .comment-author {
     line-height: 1.4;
-}
-
-.comment-form {
-    label {
-        display: block;
-        font-size: 12px;
-        font-weight: 700;
-    }
-
-    p {
-        margin-bottom: 15px;
-    }
-
-    textarea {
-        box-sizing: border-box;
-        padding: 15px;
-        width: 100%;
-        resize: none;
-        background-color: var(--berry-background-white);
-        border: 1px solid var(--berry-border-color-light);
-        border-radius: 3px;
-        color: var(--berry-text-gray);
-        font-size: 14px;
-    }
-
-    .submit {
-        display: inline-block;
-        background-color: var(--berry-main-color);
-        color: var(--berry-background-white);
-        font-size: 14px;
-        padding: 8px 25px;
-        border: 0;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-
-    input[type='email'],
-    input[type='text'],
-    input[type='url'] {
-        width: 300px;
-        border-radius: 3px;
-        border: 1px solid var(--berry-border-color-light);
-        line-height: 28px;
-        padding-left: 10px;
-        padding-right: 10px;
-        color: var(--berry-text-gray);
-        font-size: 14px;
-    }
-}
-
-.screen-reader-text {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-}
-
-.comments-pagination {
-    padding-top: 25px;
-    padding-bottom: 25px;
-
-    .page-numbers {
-        background: var(--berry-background-gray);
-        border-radius: 3px;
-        color: var(--berry-text-gray);
-        font-size: 12px;
-        line-height: 1;
-        padding: 5px 8px;
-        margin: 0 5px;
-        &:hover,
-        &.current {
-            background: var(--berry-hover-color);
-            color: var(--berry-background-white);
-        }
-    }
-}
-
-.logged-in-as {
-    font-size: 12px;
-    color: var(--berry-text-gray);
-}
-
-.comment-respond {
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
 
 .comment--parent__link {
@@ -212,59 +134,22 @@
     color: var(--berry-main-color);
 }
 
-.comment-form-cookies-consent {
-    #wp-comment-cookies-consent {
-        display: none;
-    }
-
-    label {
-        font-size: 14px;
-        color: var(--berry-text-gray);
-        display: flex;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-        font-weight: 400;
-
-        &::before {
-            background-color: var(--berry-background-white);
-            border: 1px solid var(--berry-border-color);
-            border-radius: 100%;
-            height: 16px;
-            margin-right: 6px;
-            vertical-align: middle;
-            width: 16px;
-            content: '';
-            flex: 0 0 auto;
-        }
-    }
-
-    input:checked + label {
-        &::after {
-            background-color: var(--berry-hover-color);
-            border-radius: 100%;
-            content: '';
-            position: absolute;
-            left: 1px;
-            height: 12px;
-            margin: 2px;
-            width: 12px;
-            flex: 0 0 auto;
-        }
-    }
-}
-
 .no-comments {
-    text-align: center;
     padding: 30px 0;
     font-size: 14px;
     color: var(--berry-text-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        margin-right: 10px;
+        fill: var(--berry-text-gray);
+    }
 }
 
 .friend--icon {
     margin-left: 5px;
-
-    // fill: var(--farallon-main-color);
     width: 16px;
     height: 16px;
 }

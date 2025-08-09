@@ -4,6 +4,11 @@
 
 ## Changelog
 
+### 2.2.0
+
+- update translation
+- style enhancement
+
 ### 2.1.0
 
 - add post read time

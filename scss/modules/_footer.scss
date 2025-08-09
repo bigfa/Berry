@@ -1,8 +1,12 @@
-.site-footer {
+.bFooter {
     padding-top: 20px;
     padding-bottom: 20px;
     color: var(--berry-text-gray);
     font-size: 14px;
+
+    &--content {
+        text-align: center;
+    }
 }
 
 .backToTop {

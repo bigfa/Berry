@@ -5,8 +5,8 @@ Template Name: Archives
 ?>
 <?php get_header(); ?>
 <div class="container">
-    <header class="page-archive-header">
-        <h1 class="page-archive-title"><?php the_title(); ?></h1>
+    <header class="bArticle--header">
+        <h2 class="bArticle--title"><?php the_title(); ?></h2>
     </header>
     <div class="list-archive-wrapper">
         <?php

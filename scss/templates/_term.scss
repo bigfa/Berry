@@ -1,11 +1,13 @@
-.term--header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 20px;
+.bTerm {
+    &--header {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
 
-    .term--image {
+    &--image {
         width: 80px;
         height: 80px;
         border-radius: 3px;
@@ -13,18 +15,18 @@
         margin-bottom: 10px;
     }
 
-    &__content {
+    &--content {
         text-align: center;
+    }
 
-        .term--title {
-            font-size: 20px;
-            font-weight: 700;
-        }
+    &--title {
+        font-size: 20px;
+        font-weight: 700;
+    }
 
-        .term--description {
-            font-size: 14px;
-            color: var(--berry-text-light);
-        }
+    &--description {
+        font-size: 14px;
+        color: var(--berry-text-light);
     }
 }
 
@@ -53,9 +55,4 @@
             color: var(--berry-hover-color);
         }
     }
-}
-
-.page-archive-title {
-    font-size: 28px;
-    font-weight: 700;
 }

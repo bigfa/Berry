@@ -1,0 +1,108 @@
+.postsFooterNav {
+    font-size: 18px;
+    color: var(--berry-text-gray);
+
+    .page-numbers {
+        margin-right: 8px;
+        &.current,
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.comments-pagination {
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    .page-numbers {
+        background: var(--berry-background-gray);
+        border-radius: 3px;
+        color: var(--berry-text-gray);
+        font-size: 12px;
+        line-height: 1;
+        padding: 5px 8px;
+        margin: 0 5px;
+        &:hover,
+        &.current {
+            background: var(--berry-hover-color);
+            color: var(--berry-background-white);
+        }
+    }
+}
+
+.post-navigation {
+    .article + & {
+        margin-top: 10px;
+    }
+
+    display: flex;
+    justify-content: space-between;
+
+    .nav-previous,
+    .nav-next {
+        width: 49%;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover {
+            border-radius: 8px;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        text-align: right;
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        border: 1px solid transparent;
+
+        .cover--link {
+            position: relative;
+            .marker--tips {
+                position: absolute;
+                bottom: 5px;
+                right: 5px;
+                background-color: #f8f8f8;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 12px;
+                color: var(--berry-text-gray);
+                line-height: 1;
+            }
+        }
+    }
+
+    .nav-previous {
+        text-align: left;
+    }
+
+    .meta-nav {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--berry-text-gray);
+    }
+
+    .post-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        &:hover {
+            color: var(--berry-hover-color);
+        }
+    }
+
+    @media (max-width: 720px) {
+        flex-direction: column;
+
+        .nav-previous,
+        .nav-next {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}

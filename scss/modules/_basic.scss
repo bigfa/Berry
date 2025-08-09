@@ -98,12 +98,6 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-.screen-reader-text {
-    left: -9999px;
-    position: absolute;
-    top: -9999px;
-}
-
 .layoutSingleColumn {
     max-width: var(--berry-content-width);
     margin-right: auto;
@@ -121,20 +115,16 @@ svg:not(:root) {
     }
 }
 
-.middotDivider:after {
-    content: '/';
-    margin-left: 8px;
-    margin-right: 8px;
+.middotDivider {
+    &::after {
+        content: '/';
+        margin-left: 8px;
+        margin-right: 8px;
+    }
 }
 
 .u-paddingTop50 {
     padding-top: 50px;
-}
-
-@media (max-width: 600px) {
-    .pagination {
-        text-align: center;
-    }
 }
 
 .u-textAlignCenter {
@@ -148,30 +138,6 @@ svg:not(:root) {
     padding-bottom: 50px;
 }
 
-.page-wrapper {
-    background-color: #fff;
-    padding: 30px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-}
-
-.post-actions {
-    padding-bottom: 10px;
-}
-
-.page {
-    .comments-area {
-        background-color: #fff;
-        border-top: 0;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        .layoutSingleColumn {
-            width: auto;
-            max-width: none;
-        }
-    }
-}
-
 .nav-links {
     display: flex;
     justify-content: center;
@@ -182,6 +148,7 @@ svg:not(:root) {
 .pagination {
     padding-top: 30px;
     padding-bottom: 30px;
+
     .page-numbers {
         background-color: var(--berry-background-gray);
         color: var(--berry-text-gray);
@@ -208,10 +175,8 @@ svg:not(:root) {
             cursor: not-allowed;
         }
     }
-}
 
-@media (max-width: 600px) {
-    .pagination {
+    @media (max-width: 600px) {
         padding-top: 15px;
         padding-bottom: 15px;
     }

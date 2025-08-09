@@ -1,6 +1,6 @@
 <?php global $berrySetting; ?>
-<article class="block--list" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <div class="block-postMetaWrap">
+<article class="bBlock--item" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <header class="bBlock--header">
         <?php if (is_sticky() && is_front_page()) : ?>
             <span class="sticky--post">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="none" viewBox="0 0 24 24" class="bk">
@@ -12,7 +12,7 @@
         <?php do_action('marker_pro_flag'); ?>
         <div class="">
             <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>">
-                <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
+                <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __(' ago', 'Berry'); ?>
             </time>
             <span class="sep"></span>
             <?php the_category(',') ?>
@@ -26,11 +26,11 @@
             <?php endif; ?>
             <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_VIEW_KEY, true); ?> Views
         </div>
-    </div>
-    <h2 class="block-title" itemprop="headline">
+    </header>
+    <h2 class="bBlock--title" itemprop="headline">
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a>
     </h2>
-    <div class="block-snippet block-snippet--subtitle grap">
+    <div class="bBlock--snippet bGraph">
         <p itemprop="about">
             <?php
             if (has_excerpt()) {
@@ -41,11 +41,11 @@
             ?>
         </p>
         <?php if (!$berrySetting->get_setting('hide_home_cover') && berry_get_post_image_count(get_the_ID()) > 0) : ?>
-            <div class="block--images<?php if (berry_get_post_image_count(get_the_ID()) > 3 && $berrySetting->get_setting('home_image_count')) echo ' block--images__withcount'; ?>" data-count="<?php echo berry_get_post_image_count(get_the_ID()); ?>">
+            <div class="bBlock--images<?php if (berry_get_post_image_count(get_the_ID()) > 3 && $berrySetting->get_setting('home_image_count')) echo ' bBlock--images__withcount'; ?>" data-count="<?php echo berry_get_post_image_count(get_the_ID()); ?>">
                 <?php $images = berry_get_post_images(get_the_ID(), 3);
                 if ($images) {
                     foreach ($images as $image) {
-                        echo '<img src="' . $image . '" alt="' . get_the_title() . '" class="block--image" alt="' . get_the_title() . '" aria-label="' . get_the_title() . '">';
+                        echo '<img src="' . $image . '" alt="' . get_the_title() . '" class="bBlock--image" alt="' . get_the_title() . '" aria-label="' . get_the_title() . '">';
                     }
                 }
                 ?>

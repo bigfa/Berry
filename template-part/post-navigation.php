@@ -11,7 +11,7 @@
 $previou_post = get_previous_post();
 $next_post = get_next_post();
 ?>
-<nav class="navigation post-navigation is-active" aria-label="<?php _e('Post', 'Berry'); ?>">
+<nav class="navigation post-navigation" aria-label="<?php _e('Post', 'Berry'); ?>">
     <?php if ($previou_post) : ?>
         <div class="nav-previous">
             <a href="<?php echo get_permalink($previou_post->ID) ?>" rel="prev">

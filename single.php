@@ -18,11 +18,11 @@ global $berrySetting;
                 </div>
             </div>
         <?php endif; ?>
-        <div class="block-postMetaWrap">
+        <div class="bArticle--header">
             <?php do_action('marker_pro_flag'); ?>
             <div class="">
                 <time itemprop="datePublished" datetime="<?php echo get_the_date('c'); ?>">
-                    <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __('ago', 'Berry'); ?>
+                    <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) .  __(' ago', 'Berry'); ?>
                 </time>
                 <span class="sep"></span>
                 <?php the_category(',') ?>
@@ -37,10 +37,10 @@ global $berrySetting;
                 <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_VIEW_KEY, true); ?> Views
             </div>
         </div>
-        <h2 class="block-title" itemprop="headline">
+        <h2 class="bArticle--title" itemprop="headline">
             <?php the_title(); ?>
         </h2>
-        <div class="grap article-content" itemprop="articleBody">
+        <div class="bGraph bArticle--content" itemprop="articleBody">
             <?php the_content(); ?>
         </div>
         <?php wp_link_pages(array(
@@ -52,9 +52,9 @@ global $berrySetting;
         <?php
         $tags = get_the_tags();
         if ($tags) {
-            echo '<div class="tag-list">';
+            echo '<div class="bArticle--tags">';
             foreach ($tags as $tag) {
-                echo '<a href="' . get_tag_link($tag->term_id) . '" class="tag-list--item"><svg viewBox="0 0 24 24" width="24" height="24">
+                echo '<a href="' . get_tag_link($tag->term_id) . '"><svg viewBox="0 0 24 24" width="24" height="24">
             <g fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                 <path d="M6.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />
                 <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592-5.592a2.41 2.41 0 0 0 0-3.408l-7.71-7.71A2 2 0 0 0 11.172 3H6a3 3 0 0 0-3 3" />
@@ -63,24 +63,8 @@ global $berrySetting;
             }
             echo '</div>';
         } ?>
-        <div class="postFooter--simple">
-            <?php $categories = get_the_category();
-            if (!empty($categories) && $berrySetting->get_setting('category_card')) :
-                $category = $categories[0];
-            ?>
-                <?php if (get_term_meta($category->term_id, '_thumb', true)) : ?>
-                    <a href="<?php echo get_term_link($category); ?>" class="collectionAvatar collectionAvatar--medium">
-                        <img class="card-image card-image--collection" src="<?php echo get_term_meta($category->term_id, '_thumb', true); ?>">
-                    </a>
-                <?php endif; ?>
-                <h4 class="postFooter-collection">
-                    <a href="<?php echo get_term_link($category); ?>" class="link link--primary"><?php echo $category->name; ?></a>
-                </h4>
-                <div class="postFooter-info">
-                    <?php echo $category->description; ?>
-                </div>
-            <?php endif; ?>
-            <div class="postFooter-actions">
+        <div class="bArticle--footer">
+            <div class="bArticle--actions">
                 <?php if ($berrySetting->get_setting('postlike')) : ?>
                     <button class="button--like like-btn" aria-label="like the post">
                         <svg class="icon--active" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-label="clap">
