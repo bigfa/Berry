@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Berry theme.
 msgid ""
 msgstr ""
-"Project-Id-Version: Berry 2.2.0\n"
+"Project-Id-Version: Berry 2.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/Berry\n"
-"POT-Creation-Date: 2025-08-09T08:47:32+00:00\n"
-"PO-Revision-Date: 2025-08-09 16:48+0800\n"
+"POT-Creation-Date: 2025-08-29T14:06:57+00:00\n"
+"PO-Revision-Date: 2025-08-30 19:40+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 "X-Domain: Berry\n"
 
 #. Theme Name of the theme
@@ -45,459 +45,479 @@ msgstr ""
 msgid "Random Posts"
 msgstr ""
 
-#: archive.php:16 category.php:19 index.php:10
+#: archive.php:15 category.php:18 index.php:9
 msgid "Prev page"
-msgstr ""
+msgstr "前のページ"
 
-#: archive.php:17 category.php:20 index.php:11
+#: archive.php:16 category.php:19 index.php:10
 msgid "Next page"
-msgstr ""
+msgstr "次のページ"
 
 #: comments.php:7
 msgctxt "comments title"
 msgid "One comment"
 msgid_plural "%1$s comments"
-msgstr[0] ""
+msgstr[0] "1件のコメント"
 
 #: comments.php:15
 msgid "Reply"
-msgstr ""
+msgstr "返信"
 
-#: comments.php:22
+#: comments.php:23
 msgid "Prev"
-msgstr ""
+msgstr "前"
 
-#: comments.php:23 template-part/post-navigation.php:28
+#: comments.php:24 template-part/post-navigation.php:28
 msgid "Next"
-msgstr ""
+msgstr "次"
 
-#: comments.php:28
+#: comments.php:32
 msgid "No comment."
-msgstr ""
+msgstr "コメントはありません。"
+
+#: inc/base.php:104
+msgid "No links yet"
+msgstr "リンクはまだありません。"
 
 #: inc/base.php:151
 msgid "1 min read"
-msgstr ""
+msgstr "1分で読めます"
 
 #: inc/base.php:153
 msgid "%d min read"
-msgstr ""
+msgstr "%d分で読めます"
+
+#: inc/base.php:184
+msgid "No views yet"
+msgstr "まだ閲覧数はありません。"
+
+#: inc/base.php:186
+msgid "1 View"
+msgstr "1件の閲覧"
+
+#: inc/base.php:189
+msgid "%d Views"
+msgstr "%d件の閲覧"
+
+#: inc/base.php:213
+msgid "1 Like"
+msgstr "1件のいいね"
+
+#: inc/base.php:216
+msgid "%d Likes"
+msgstr "%d件のいいね"
 
 #: inc/comment.php:85
 msgid "Author"
-msgstr ""
+msgstr "著者"
 
 #: inc/comment.php:143 inc/comment.php:162 inc/comment.php:192
-#: inc/comment.php:205 inc/comment.php:231 inc/setting.php:28
+#: inc/comment.php:205 inc/comment.php:231 inc/setting.php:27
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
-#: inc/comment.php:275 template-part/post/content-card.php:10
-#: template-part/post/content-status.php:6
-msgid "ago"
-msgstr ""
+#: inc/comment.php:273 single.php:25 template-part/post/content-card.php:7
+#: template-part/post/content-card.php:33
+#: template-part/post/content-status.php:4 template-part/post/content.php:15
+msgid " ago"
+msgstr "前"
 
-#: inc/setting.php:47 inc/setup.php:228
+#: inc/setting.php:46 inc/setup.php:230
 msgid "Setting saved success!"
-msgstr ""
+msgstr "設定が保存されました。"
 
-#: inc/setting.php:48 inc/setup.php:229
+#: inc/setting.php:47 inc/setup.php:231
 msgid "Upload Image"
-msgstr ""
+msgstr "画像をアップロード"
 
-#: inc/setting.php:56 inc/setting.php:62
+#: inc/setting.php:55 inc/setting.php:61
 msgid "Theme Setting"
-msgstr ""
+msgstr "テーマ設定"
 
-#: inc/setting.php:63 inc/setting.php:86
+#: inc/setting.php:62 inc/setting.php:85
 msgid "Documentation"
-msgstr ""
+msgstr "ドキュメンテーション"
 
-#: inc/setting.php:113
+#: inc/setting.php:112
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
-#: inc/setting.php:202
+#: inc/setting.php:201
 msgid "Basic Setting"
-msgstr ""
+msgstr "基本設定"
 
-#: inc/setting.php:207
+#: inc/setting.php:206
 msgid "Feature Setting"
-msgstr ""
+msgstr "機能設定"
 
-#: inc/setting.php:213
+#: inc/setting.php:212
 msgid "Singluar Setting"
-msgstr ""
+msgstr "単数設定"
 
-#: inc/setting.php:218
+#: inc/setting.php:217
 msgid "SNS Setting"
-msgstr ""
+msgstr "SNS設定"
 
-#: inc/setting.php:223
+#: inc/setting.php:222
 msgid "Custom Setting"
-msgstr ""
+msgstr "カスタム設定"
+
+#: inc/setting.php:233
+msgid "Description"
+msgstr "説明"
 
 #: inc/setting.php:234
-msgid "Description"
-msgstr ""
-
-#: inc/setting.php:235
 msgid "Site description"
-msgstr ""
+msgstr "サイトの説明"
+
+#: inc/setting.php:239
+msgid "Headcode"
+msgstr "ヘッドコード"
 
 #: inc/setting.php:240
-msgid "Headcode"
-msgstr ""
+msgid "You can add content to the head tag, such as site verification tags, and so on."
+msgstr "サイトの検証タグなど、ヘッダーにコンテンツを追加できます。"
 
-#: inc/setting.php:241
-msgid ""
-"You can add content to the head tag, such as site verification tags, and so "
-"on."
-msgstr ""
+#: inc/setting.php:245
+msgid "Og default thumb"
+msgstr "OGデフォルトサムネイル"
 
 #: inc/setting.php:246
-msgid "Og default thumb"
-msgstr ""
-
-#: inc/setting.php:247
 msgid "Og meta default thumb address."
-msgstr ""
+msgstr "OGメタデフォルトサムネイルアドレス。"
+
+#: inc/setting.php:251
+msgid "Favicon"
+msgstr "ファビコン"
 
 #: inc/setting.php:252
-msgid "Favicon"
-msgstr ""
-
-#: inc/setting.php:253
 msgid "Favicon address"
-msgstr ""
+msgstr "ファビコンアドレス"
+
+#: inc/setting.php:257
+msgid "Title sep"
+msgstr "タイトル区切り"
 
 #: inc/setting.php:258
-msgid "Title sep"
-msgstr ""
-
-#: inc/setting.php:259
 msgid "Default is"
-msgstr ""
+msgstr "デフォルトは"
+
+#: inc/setting.php:263
+msgid "Disable block css"
+msgstr "ブロックCSSを無効にする"
 
 #: inc/setting.php:264
-msgid "Disable block css"
-msgstr ""
-
-#: inc/setting.php:265
 msgid "Do not load block-style files."
-msgstr ""
+msgstr "ブロックスタイルファイルを読み込まない。"
+
+#: inc/setting.php:269
+msgid "Gravatar proxy"
+msgstr "Gravatarプロキシ"
 
 #: inc/setting.php:270
-msgid "Gravatar proxy"
-msgstr ""
-
-#: inc/setting.php:271
 msgid "Gravatar proxy domain,like <code>cravatar.cn</code>"
-msgstr ""
+msgstr "Gravatarプロキシドメイン、例えば<code>cravatar.cn</code>"
+
+#: inc/setting.php:275
+msgid "RSS Tag"
+msgstr "RSSタグ"
 
 #: inc/setting.php:276
-msgid "RSS Tag"
-msgstr ""
-
-#: inc/setting.php:277
 msgid "You can add tag in rss to verify follow."
-msgstr ""
+msgstr "フォローを確認するためにRSSにタグを追加できます。"
+
+#: inc/setting.php:287
+msgid "Update notice"
+msgstr "更新通知"
 
 #: inc/setting.php:288
-msgid "Update notice"
-msgstr ""
-
-#: inc/setting.php:289
 msgid "Get theme update notice."
-msgstr ""
+msgstr "テーマの更新通知を受け取る。"
+
+#: inc/setting.php:293
+msgid "Upyun CDN"
+msgstr "Upyun CDN"
 
 #: inc/setting.php:294
-msgid "Upyun CDN"
-msgstr ""
+msgid "Make sure all images are uploaded to Upyun, otherwise thumbnails may not display properly."
+msgstr "すべての画像がUpyunにアップロードされていることを確認してください。そうしないと、サムネイルが正しく表示されない場合があります。"
 
-#: inc/setting.php:295
-msgid ""
-"Make sure all images are uploaded to Upyun, otherwise thumbnails may not "
-"display properly."
-msgstr ""
+#: inc/setting.php:299
+msgid "Aliyun OSS CDN"
+msgstr "Aliyun OSS CDN"
 
 #: inc/setting.php:300
-msgid "Aliyun OSS CDN"
-msgstr ""
+msgid "Make sure all images are uploaded to Aliyun OSS, otherwise thumbnails may not display properly."
+msgstr "すべての画像がAliyun OSSにアップロードされていることを確認してください。そうしないと、サムネイルが正しく表示されない場合があります。"
 
-#: inc/setting.php:301
-msgid ""
-"Make sure all images are uploaded to Aliyun OSS, otherwise thumbnails may "
-"not display properly."
-msgstr ""
+#: inc/setting.php:305
+msgid "Qiniu OSS CDN"
+msgstr "Qiniu OSS CDN"
 
 #: inc/setting.php:306
-msgid "Qiniu OSS CDN"
-msgstr ""
+msgid "Make sure all images are uploaded to Qiniu OSS, otherwise thumbnails may not display properly."
+msgstr "すべての画像がQiniu OSSにアップロードされていることを確認してください。そうしないと、サムネイルが正しく表示されない場合があります。"
 
-#: inc/setting.php:307
-msgid ""
-"Make sure all images are uploaded to Qiniu OSS, otherwise thumbnails may not "
-"display properly."
-msgstr ""
+#: inc/setting.php:311
+msgid "Dark Mode"
+msgstr "ダークモード"
 
 #: inc/setting.php:312
-msgid "Dark Mode"
-msgstr ""
-
-#: inc/setting.php:313
 msgid "Enable dark mode"
-msgstr ""
+msgstr "ダークモードを有効にする"
+
+#: inc/setting.php:317
+msgid "Default thumbnail"
+msgstr "デフォルトサムネイル"
 
 #: inc/setting.php:318
-msgid "Default thumbnail"
-msgstr ""
-
-#: inc/setting.php:319
 msgid "Default thumbnail address"
-msgstr ""
+msgstr "デフォルトサムネイルアドレス"
+
+#: inc/setting.php:323
+msgid "Back to top"
+msgstr "トップに戻る"
 
 #: inc/setting.php:324
-msgid "Back to top"
-msgstr ""
-
-#: inc/setting.php:325
 msgid "Enable back to top"
-msgstr ""
+msgstr "トップに戻るを有効にする"
+
+#: inc/setting.php:329
+msgid "Image count"
+msgstr "画像数"
+
+#: inc/setting.php:330
+msgid "Show image count of the post"
+msgstr "投稿の画像数を表示"
+
+#: inc/setting.php:335 inc/setting.php:336
+msgid "Hide home cover"
+msgstr "ホームカバーを非表示にする"
+
+#: inc/setting.php:347
+msgid "Author bio"
+msgstr "著者情報"
+
+#: inc/setting.php:348
+msgid "Enable author bio"
+msgstr "著者情報を有効にする"
+
+#: inc/setting.php:353
+msgid "Related posts"
+msgstr "関連記事"
 
 #: inc/setting.php:354
-msgid "Image count"
-msgstr ""
+msgid "Enable related posts"
+msgstr "関連記事を有効にする"
 
-#: inc/setting.php:355
-msgid "Show image count of the post"
-msgstr ""
+#: inc/setting.php:359
+msgid "Post like"
+msgstr "投稿にいいね"
 
-#: inc/setting.php:360 inc/setting.php:361
-msgid "Hide home cover"
-msgstr ""
+#: inc/setting.php:360
+msgid "Enable post like"
+msgstr "投稿にいいねを有効にする"
+
+#: inc/setting.php:365
+msgid "Post navigation"
+msgstr "投稿ナビゲーション"
+
+#: inc/setting.php:366
+msgid "Enable post navigation"
+msgstr "投稿ナビゲーションを有効にする"
+
+#: inc/setting.php:371
+msgid "Copy link"
+msgstr "リンクをコピー"
+
+#: inc/setting.php:372
+msgid "Enable copy link"
+msgstr "リンクをコピーを有効にする"
+
+#: inc/setting.php:377
+msgid "Show parent comment"
+msgstr "親コメントを表示"
 
 #: inc/setting.php:378
-msgid "Author bio"
-msgstr ""
+msgid "Enable show parent comment"
+msgstr "親コメントを表示を有効にする"
 
-#: inc/setting.php:379
-msgid "Enable author bio"
-msgstr ""
+#: inc/setting.php:383 inc/setup.php:141
+msgid "Table of content"
+msgstr "目次"
+
+#: inc/setting.php:384
+msgid "Enable table of content"
+msgstr "目次を有効にする"
+
+#: inc/setting.php:389
+msgid "Start heading"
+msgstr "開始見出し"
 
 #: inc/setting.php:390
-msgid "Related posts"
-msgstr ""
+msgid "Start heading,default h3"
+msgstr "開始見出し、デフォルトはh3"
 
-#: inc/setting.php:391
-msgid "Enable related posts"
-msgstr ""
+#: inc/setting.php:395
+msgid "Disable comment link"
+msgstr "コメントリンクを無効にする"
 
 #: inc/setting.php:396
-msgid "Post like"
-msgstr ""
+msgid "Disable comment author url"
+msgstr "コメント著者のURLを無効にする"
 
-#: inc/setting.php:397
-msgid "Enable post like"
-msgstr ""
+#: inc/setting.php:401
+msgid "No reply text"
+msgstr "返信がない場合のテキスト"
 
 #: inc/setting.php:402
-msgid "Post navigation"
-msgstr ""
+msgid "Text display when no comment in current post."
+msgstr "現在の投稿にコメントがない場合に表示されるテキスト。"
 
-#: inc/setting.php:403
-msgid "Enable post navigation"
-msgstr ""
+#: inc/setting.php:407
+msgid "Friend icon"
+msgstr "友達アイコン"
 
 #: inc/setting.php:408
-msgid "Copy link"
-msgstr ""
+msgid "Show icon when comment author url is in blogroll."
+msgstr "コメント著者のURLがブログロールにある場合にアイコンを表示する。"
 
-#: inc/setting.php:409
-msgid "Enable copy link"
-msgstr ""
+#: inc/setting.php:413
+msgid "Post update time"
+msgstr "投稿の更新時刻"
 
 #: inc/setting.php:414
-msgid "Category card"
-msgstr ""
+msgid "Show the last update time of post."
+msgstr "投稿の最終更新時刻を表示する。"
 
-#: inc/setting.php:415
-msgid "Show post category info after post."
-msgstr ""
+#: inc/setting.php:425
+msgid "Telegram"
+msgstr "Telegram"
 
-#: inc/setting.php:420
-msgid "Show parent comment"
-msgstr ""
+#: inc/setting.php:426
+msgid "Telegram link"
+msgstr "Telegramリンク"
 
-#: inc/setting.php:421
-msgid "Enable show parent comment"
-msgstr ""
-
-#: inc/setting.php:426 inc/setup.php:139
-msgid "Table of content"
-msgstr ""
-
-#: inc/setting.php:427
-msgid "Enable table of content"
-msgstr ""
+#: inc/setting.php:431
+msgid "Twitter"
+msgstr "Twitter"
 
 #: inc/setting.php:432
-msgid "Start heading"
-msgstr ""
+msgid "Twitter link"
+msgstr "Twitterリンク"
 
-#: inc/setting.php:433
-msgid "Start heading,default h3"
-msgstr ""
+#: inc/setting.php:437
+msgid "RSS"
+msgstr "RSS"
+
+#: inc/setting.php:438
+msgid "RSS link"
+msgstr "RSSリンク"
+
+#: inc/setting.php:443
+msgid "Custom"
+msgstr "カスタム"
 
 #: inc/setting.php:444
-msgid "Disable comment link"
-msgstr ""
-
-#: inc/setting.php:445
-msgid "Disable comment author url"
-msgstr ""
-
-#: inc/setting.php:450
-msgid "No reply text"
-msgstr ""
-
-#: inc/setting.php:451
-msgid "Text display when no comment in current post."
-msgstr ""
-
-#: inc/setting.php:456
-msgid "Friend icon"
-msgstr ""
-
-#: inc/setting.php:457
-msgid "Show icon when comment author url is in blogroll."
-msgstr ""
-
-#: inc/setting.php:486
-msgid "Telegram"
-msgstr ""
-
-#: inc/setting.php:487
-msgid "Telegram link"
-msgstr ""
-
-#: inc/setting.php:504
-msgid "Twitter"
-msgstr ""
-
-#: inc/setting.php:505
-msgid "Twitter link"
-msgstr ""
-
-#: inc/setting.php:510
-msgid "RSS"
-msgstr ""
-
-#: inc/setting.php:511
-msgid "RSS link"
-msgstr ""
-
-#: inc/setting.php:534
-msgid "Custom"
-msgstr ""
-
-#: inc/setting.php:535
 msgid "Custom sns link,use html."
-msgstr ""
+msgstr "カスタムSNSリンク、HTMLを使用。"
 
-#: inc/setting.php:545
+#: inc/setting.php:454
 msgid "CSS"
-msgstr ""
+msgstr "CSS"
 
-#: inc/setting.php:546
+#: inc/setting.php:455
 msgid "Custom CSS"
-msgstr ""
+msgstr "カスタムCSS"
 
-#: inc/setting.php:551
+#: inc/setting.php:460
 msgid "Javascript"
-msgstr ""
+msgstr "Javascript"
 
-#: inc/setting.php:552
+#: inc/setting.php:461
 msgid "Custom Javascript"
-msgstr ""
+msgstr "カスタムJavascript"
 
-#: inc/setting.php:557
+#: inc/setting.php:466
 msgid "Copyright"
-msgstr ""
+msgstr "著作権"
 
-#: inc/setting.php:558
+#: inc/setting.php:467
 msgid "Custom footer content"
-msgstr ""
+msgstr "カスタムフッターコンテンツ"
 
 #: inc/setup.php:21
 msgid "Primary Menu"
-msgstr ""
-
-#: inc/setup.php:91
-msgid "Cover"
-msgstr ""
+msgstr "プライマリーメニュー"
 
 #: inc/setup.php:93
+msgid "Cover"
+msgstr "カバー"
+
+#: inc/setup.php:95
 msgid "Upload"
-msgstr ""
+msgstr "アップロード"
 
-#: inc/setup.php:94
+#: inc/setup.php:96
 msgid "Category cover url."
-msgstr ""
+msgstr "カテゴリカバーのURL。"
 
-#: inc/setup.php:162
+#: inc/setup.php:164
 msgid "author"
-msgstr ""
+msgstr "著者"
 
-#: inc/setup.php:162
+#: inc/setup.php:164
 msgid "published on"
-msgstr ""
+msgstr "公開日"
 
-#: inc/setup.php:230
+#: inc/setup.php:232
 msgid "Set Category Image"
-msgstr ""
-
-#: inc/setup.php:269
-msgid "Comment submitted successfully!"
-msgstr ""
+msgstr "カテゴリ画像を設定"
 
 #: inc/setup.php:271
-msgid "Link copied to clipboard!"
-msgstr ""
+msgid "Comment submitted successfully!"
+msgstr "コメントが正常に送信されました！"
 
 #: inc/setup.php:272
-msgid "Thanks for your like!"
-msgstr ""
+msgid "Just now"
+msgstr "たった今"
 
-#: single.php:25 template-part/post/content-card.php:36
-#: template-part/post/content.php:15
-msgid " ago"
-msgstr ""
+#: inc/setup.php:273
+msgid "Link copied to clipboard!"
+msgstr "リンクがクリップボードにコピーされました！"
+
+#: inc/setup.php:274
+msgid "Thanks for your like!"
+msgstr "いいねをありがとうございます！"
+
+#: single.php:53 single.php:54
+msgid "View all status posts"
+msgstr "すべてのステータス投稿を表示"
 
 #: template-part/post-navigation.php:14
 msgid "Post"
-msgstr ""
+msgstr "投稿"
 
 #: template-part/post-navigation.php:18
 msgid "Previous"
-msgstr ""
+msgstr "前"
 
 #: template-part/post/content.php:9
 msgid "Sticky"
-msgstr ""
+msgstr "固定"
 
 #: template-part/single-related.php:1
 msgid "Related Posts"
-msgstr ""
+msgstr "関連記事"
 
 #. Template Name of the theme
 msgid "Archives"
-msgstr ""
+msgstr "アーカイブ"
 
 #. Template Name of the theme
 msgid "Links"
-msgstr ""
+msgstr "リンク"
 
 #. Template Name of the theme
 msgid "Terms"
-msgstr ""
+msgstr "用語"

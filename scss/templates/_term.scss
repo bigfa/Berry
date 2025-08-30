@@ -29,30 +29,3 @@
         color: var(--berry-text-light);
     }
 }
-
-.month-posts {
-    background-color: var(--berry-background-gray-light);
-    border-radius: 5px;
-}
-
-.month-post {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid var(--berry-border-color-light);
-
-    &:last-child {
-        border-bottom: none;
-    }
-
-    .post-time {
-        font-size: 12px;
-        color: var(--berry-text-gray-lightest);
-    }
-
-    a {
-        &:hover {
-            color: var(--berry-hover-color);
-        }
-    }
-}

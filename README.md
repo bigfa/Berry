@@ -4,6 +4,15 @@
 
 ## Changelog
 
+### 2.2.2
+
+- add japanese support
+
+### 2.2.1
+
+- style enhancement
+- update translation
+
 ### 2.2.0
 
 - update translation

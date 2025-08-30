@@ -1,0 +1,39 @@
+.bStatus {
+    &--item {
+        padding: 25px 0;
+    }
+
+    &--header {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        color: var(--berry-text-gray-lightest);
+        .avatar {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+
+        a {
+            &:hover {
+                color: var(--berry-text-color);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &--snippet {
+        font-size: 16px;
+        border-left: 3px solid var(--berry-border-color);
+        padding-left: 10px;
+        margin-top: 20px;
+        line-height: 1.6;
+        color: var(--berry-text-gray);
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+}

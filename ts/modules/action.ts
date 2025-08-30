@@ -6,12 +6,9 @@ class berryAction extends berryBase {
     is_archive: boolean = false;
     constructor() {
         super();
-        //@ts-ignore
-        this.is_single = obvInit.is_single;
-        //@ts-ignore
-        this.post_id = obvInit.post_id;
-        //@ts-ignore
-        this.is_archive = obvInit.is_archive;
+        this.is_single = this.obvInit.is_single;
+        this.post_id = this.obvInit.post_id;
+        this.is_archive = this.obvInit.is_archive;
         this.like_btn = document.querySelector(this.selctor);
         if (this.like_btn) {
             this.like_btn.addEventListener('click', () => {
@@ -57,7 +54,7 @@ class berryAction extends berryBase {
         </span>
     </div>`;
         if (this.darkmode) {
-            document.querySelector('body')!.insertAdjacentHTML('beforeend', html);
+            document.querySelector('.bFooter')!.insertAdjacentHTML('beforeend', html);
         }
 
         document.querySelectorAll('.fixed--theme span').forEach((item) => {
@@ -66,27 +63,22 @@ class berryAction extends berryBase {
                 document.querySelectorAll('.fixed--theme span').forEach((item) => {
                     item.classList.remove('is-active');
                 });
-                // @ts-ignore
-                if (item.dataset.actionValue == 'dark') {
+                const el = item as HTMLElement;
+                if (el.dataset.actionValue == 'dark') {
                     localStorage.setItem('theme', 'dark');
                     document.querySelector('body')!.classList.remove('auto');
                     document.querySelector('body')!.classList.add('dark');
-                    item.classList.add('is-active');
-                    //this.showNotice('夜间模式已开启');
-                    // @ts-ignore
-                } else if (item.dataset.actionValue == 'light') {
+                    el.classList.add('is-active');
+                } else if (el.dataset.actionValue == 'light') {
                     localStorage.setItem('theme', 'light');
                     document.querySelector('body')!.classList.remove('auto');
                     document.querySelector('body')!.classList.remove('dark');
-                    item.classList.add('is-active');
-                    //this.showNotice('夜间模式已关闭');
-                    // @ts-ignore
-                } else if (item.dataset.actionValue == 'auto') {
+                    el.classList.add('is-active');
+                } else if (el.dataset.actionValue == 'auto') {
                     localStorage.setItem('theme', 'auto');
                     document.querySelector('body')!.classList.remove('dark');
                     document.querySelector('body')!.classList.add('auto');
-                    item.classList.add('is-active');
-                    //this.showNotice('夜间模式已关闭');
+                    el.classList.add('is-active');
                 }
             });
         });
@@ -94,7 +86,7 @@ class berryAction extends berryBase {
         if (document.querySelector('.post--share')) {
             document.querySelector('.post--share')!.addEventListener('click', () => {
                 navigator.clipboard.writeText(document.location.href).then(() => {
-                    this.showNotice('复制成功');
+                    this.showNotice(this.obvInit.copy_success_text);
                 });
             });
         }
@@ -111,15 +103,12 @@ class berryAction extends berryBase {
     }
 
     trackPostView() {
-        //@ts-ignore
-        const id = obvInit.post_id;
-        //@ts-ignore
+        const id = this.obvInit.post_id;
 
-        const url = obvInit.restfulBase + 'berry/v1/view?id=' + id;
+        const url = this.obvInit.restfulBase + 'berry/v1/view?id=' + id;
         fetch(url, {
             headers: {
-                // @ts-ignore
-                'X-WP-Nonce': obvInit.nonce,
+                'X-WP-Nonce': this.obvInit.nonce,
                 'Content-Type': 'application/json',
             },
         })
@@ -133,48 +122,29 @@ class berryAction extends berryBase {
 
     trackArchiveView() {
         if (document.querySelector('.archive-header')) {
-            // @ts-ignore
-            const id = obvInit.archive_id;
-            // @ts-ignore
-            fetch(`${obvInit.restfulBase}berry/v1/archive/${id}`, {
+            const id = this.obvInit.archive_id;
+            fetch(`${this.obvInit.restfulBase}berry/v1/archive/${id}`, {
                 method: 'POST',
-                // body: JSON.stringify({
-                //     // @ts-ignore
-                //     id: this.post_id,
-                // }),
                 headers: {
-                    // @ts-ignore
-                    'X-WP-Nonce': obvInit.nonce,
+                    'X-WP-Nonce': this.obvInit.nonce,
                     'Content-Type': 'application/json',
                 },
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    //this.showNotice('Thanks for your like');
-                    // @ts-ignore
-                    //this.setCookie('like_' + this.post_id, '1', 1);
-                });
+            });
         }
     }
 
     handleLike() {
-        // @ts-ignore
         if (this.getCookie('like_' + this.post_id)) {
             return this.showNotice('You have already liked this post');
         }
-        // @ts-ignore
-        const url = obvInit.restfulBase + 'berry/v1/like';
+        const url = this.obvInit.restfulBase + 'berry/v1/like';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({
-                // @ts-ignore
                 id: this.post_id,
             }),
             headers: {
-                // @ts-ignore
-                'X-WP-Nonce': obvInit.nonce,
+                'X-WP-Nonce': this.obvInit.nonce,
                 'Content-Type': 'application/json',
             },
         })
@@ -182,8 +152,7 @@ class berryAction extends berryBase {
                 return response.json();
             })
             .then((data) => {
-                this.showNotice('Thanks for your like');
-                // @ts-ignore
+                this.showNotice(this.obvInit.like_success_text);
                 this.setCookie('like_' + this.post_id, '1', 1);
             });
         this.like_btn.classList.add('is-active');

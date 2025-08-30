@@ -98,96 +98,52 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-.layoutSingleColumn {
-    max-width: var(--berry-content-width);
-    margin-right: auto;
-    margin-left: auto;
-    width: 90%;
-    &--page {
-        max-width: var(--berry-content-width);
-    }
-
-    &--wide {
-        max-width: 1180px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-    }
-}
-
-.middotDivider {
-    &::after {
-        content: '/';
-        margin-left: 8px;
-        margin-right: 8px;
-    }
-}
-
-.u-paddingTop50 {
-    padding-top: 50px;
-}
-
-.u-textAlignCenter {
-    text-align: center;
-}
-
 .error-404 {
-    font-size: 260px;
-    padding-top: 50px;
+    padding-top: 20px;
+    font-size: 60px;
     text-align: center;
     padding-bottom: 50px;
 }
 
-.nav-links {
-    display: flex;
-    justify-content: center;
-    background-color: var(--berry-background-white);
-    padding: 20px 0;
-}
-
-.pagination {
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-    .page-numbers {
-        background-color: var(--berry-background-gray);
-        color: var(--berry-text-gray);
-        padding: 3px 12px;
-        border-radius: 3px;
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 14px;
-        &.current,
-        &:hover {
-            background-color: var(--berry-hover-color);
-            color: var(--berry-background-white);
-        }
-
-        &.dots {
-            &:hover {
-                background-color: var(--berry-background-gray);
-                color: var(--berry-text-gray);
-            }
-        }
-
-        &.current,
-        &.dots {
-            cursor: not-allowed;
-        }
-    }
-
-    @media (max-width: 600px) {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-}
-
-.u-flex {
-    display: flex;
-    align-items: center;
-    align-items: center;
-}
-
 .min-height-100 {
     min-height: 75vh;
+}
+
+.container {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 90%;
+}
+
+.notice--wrapper {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-size: var(--berry-text-size-smallest);
+    max-width: 800px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: fixed;
+    z-index: 1000;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.5s transform;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+}
+
+.u-relative {
+    position: relative;
+}
+
+.sep {
+    &::before {
+        content: '/';
+        margin-left: 6px;
+        margin-right: 6px;
+    }
 }

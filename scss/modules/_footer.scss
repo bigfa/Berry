@@ -35,20 +35,13 @@
 }
 
 .fixed--theme {
-    position: fixed;
-    right: 20px;
-    bottom: 40%;
     display: flex;
     height: max-content;
-    background-color: var(--berry-background-white);
-    border-radius: 0 10px 0 10px;
     width: max-content;
-    padding: 3px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 0 1px var(--berry-border-color);
-    border-radius: 999rem;
-
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
     span {
         width: 28px;
         height: 28px;
@@ -58,7 +51,7 @@
         align-items: center;
         justify-content: center;
         color: var(--berry-text-gray-lightest);
-        margin-bottom: 5px;
+        margin: 0 5px;
 
         &:hover {
             color: var(--berry-text-color);
@@ -67,10 +60,6 @@
         &.is-active {
             color: var(--berry-text-color);
             background-color: var(--berry-background-gray);
-        }
-
-        &:last-child {
-            margin-bottom: 0;
         }
     }
 }

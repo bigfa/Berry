@@ -46,11 +46,11 @@
     .submit {
         display: inline-block;
         background-color: var(--berry-main-color);
-        color: var(--berry-background-white);
+        color: #fff;
         font-size: 14px;
         padding: 8px 25px;
         border: 0;
-        border-radius: 3px;
+        border-radius: 8px;
         cursor: pointer;
     }
 
@@ -135,4 +135,31 @@ figure,
         text-align: center;
         padding-top: 5px;
     }
+}
+
+.comment-reply-title {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    small {
+        margin-left: auto;
+        font-weight: normal;
+        color: var(--berry-text-gray);
+    }
+}
+
+.required {
+    color: #c00;
+}
+
+.comment-notes {
+    font-size: 12px;
+    color: var(--berry-text-gray);
+}
+
+.sub-menu {
+    display: none;
 }

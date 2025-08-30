@@ -25,8 +25,10 @@ class berryBase
         add_action('edit_category_form_fields', array($this, 'add_category_cover_form_item'));
         add_action('edited_terms', array($this, 'update_my_category_fields'));
         add_theme_support('post-thumbnails');
+
         if ($berrySetting->get_setting('toc'))
             add_filter('the_content', array($this, 'berry_toc'));
+
         if ($berrySetting->get_setting('gravatar_proxy'))
             add_filter('get_avatar_url', array($this, 'gravatar_proxy'), 10, 3);
 

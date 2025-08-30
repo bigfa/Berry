@@ -20,39 +20,34 @@
             <?php echo berry_get_post_read_time_text(get_the_ID()); ?>
         </div>
         <div class="post--meta">
-            <?php if (get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true)) : ?>
-                <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_LIKE_KEY, true); ?> Likes
-                <span class="sep"></span>
-            <?php endif; ?>
-            <?php echo (int)get_post_meta(get_the_ID(), BERRY_POST_VIEW_KEY, true); ?> Views
+            <?php echo berry_get_post_likes_text(false, false, false, get_the_ID(), '', '<span class="sep"></span>'); ?>
+            <?php echo berry_get_post_views_text(false, false, false, get_the_ID(), ''); ?>
         </div>
     </header>
     <h2 class="bBlock--title" itemprop="headline">
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>"><?php the_title(); ?></a>
     </h2>
-    <div class="bBlock--snippet bGraph">
-        <p itemprop="about">
-            <?php
-            if (has_excerpt()) {
-                echo get_the_excerpt();
-            } else {
-                echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 380, "...");
+    <div class="bBlock--snippet bGraph" itemprop="about">
+        <?php
+        if (has_excerpt()) {
+            echo get_the_excerpt();
+        } else {
+            echo mb_strimwidth(strip_shortcodes(strip_tags(apply_filters('the_content', $post->post_content))), 0, 380, "...");
+        }
+        ?>
+    </div>
+    <?php if (!$berrySetting->get_setting('hide_home_cover') && berry_get_post_image_count(get_the_ID()) > 0) : ?>
+        <div class="bBlock--images<?php if (berry_get_post_image_count(get_the_ID()) > 3 && $berrySetting->get_setting('home_image_count')) echo ' bBlock--images__withcount'; ?>" data-count="<?php echo berry_get_post_image_count(get_the_ID()); ?>">
+            <?php $images = berry_get_post_images(get_the_ID(), 3);
+            if ($images) {
+                foreach ($images as $image) {
+                    echo '<img src="' . $image . '" alt="' . get_the_title() . '" class="bBlock--image" alt="' . get_the_title() . '" aria-label="' . get_the_title() . '">';
+                }
             }
             ?>
-        </p>
-        <?php if (!$berrySetting->get_setting('hide_home_cover') && berry_get_post_image_count(get_the_ID()) > 0) : ?>
-            <div class="bBlock--images<?php if (berry_get_post_image_count(get_the_ID()) > 3 && $berrySetting->get_setting('home_image_count')) echo ' bBlock--images__withcount'; ?>" data-count="<?php echo berry_get_post_image_count(get_the_ID()); ?>">
-                <?php $images = berry_get_post_images(get_the_ID(), 3);
-                if ($images) {
-                    foreach ($images as $image) {
-                        echo '<img src="' . $image . '" alt="' . get_the_title() . '" class="bBlock--image" alt="' . get_the_title() . '" aria-label="' . get_the_title() . '">';
-                    }
-                }
-                ?>
-            </div>
-        <?php endif; ?>
-        <p>
-            <a class="more-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>">read more..</a>
-        </p>
+        </div>
+    <?php endif; ?>
+    <div class="bBlock--footer">
+        <a class="more-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="<?php the_title(); ?>">read more..</a>
     </div>
 </article>

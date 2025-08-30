@@ -1,11 +1,10 @@
 :root {
-    // --berry-main-color: #27ae60;
-    --berry-main-color: #5f4b8b; //#4370f5;
-    --berry-hover-color: #654ea3; // #3a5f9a;
+    --berry-main-color: #5f4b8b;
+    --berry-hover-color: #654ea3;
     --berry-text-color: rgba(0, 0, 0, 0.84);
     --berry-text-light: rgba(0, 0, 0, 0.68);
     --berry-text-gray: rgba(0, 0, 0, 0.6);
-    --berry-text-gray-lightest: rgba(0, 0, 0, 0.5);
+    --berry-text-gray-lightest: rgba(0, 0, 0, 0.55);
 
     --berry-background-white: rgba(255, 255, 255, 1);
     --berry-background-gray: #f0f0f0;
@@ -28,12 +27,6 @@
     --db--text-color-light: var(--berry-text-light);
     --db--background-gray: var(--berry-background-gray);
     --db-border-color: var(--berry-border-color);
-
-    .db--genreItem {
-        &:hover {
-            color: var(--berry-backgroud-white);
-        }
-    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,16 +50,6 @@
         --db--text-color-light: var(--berry-text-light);
         --db--background-gray: var(--berry-background-gray);
         --db-border-color: var(--berry-border-color);
-
-        .db--genreItem {
-            &:hover {
-                color: var(--berry-backgroud-white);
-            }
-        }
-
-        .doulist-item {
-            border-color: var(--db-border-color);
-        }
     }
 }
 
@@ -90,24 +73,6 @@
     --db--text-color-light: var(--berry-text-light);
     --db--background-gray: var(--berry-background-gray);
     --db-border-color: var(--berry-border-color);
-
-    .db--genreItem {
-        &:hover {
-            color: var(--berry-backgroud-white);
-        }
-    }
-
-    .doulist-item {
-        border-color: var(--db-border-color);
-    }
-
-    .comment-form {
-        // input,
-        // textarea {
-        //     background-color: rgba(63, 63, 70, 0.15);
-        //     border-color: rgba(63, 63, 70, 1);
-        // }
-    }
 }
 
 @font-face {

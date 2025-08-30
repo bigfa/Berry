@@ -49,9 +49,21 @@
         }
     }
 
-    &---snippet {
+    &--snippet {
         font-size: 16px;
         color: var(--berry-text-light);
+        margin-bottom: 15px;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            max-height: 5.4em;
+            line-height: 1.8;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
     }
 
     &--images {
@@ -92,5 +104,25 @@
         width: 100%;
         object-fit: cover;
         aspect-ratio: 1 / 0.67;
+    }
+}
+
+.more-link {
+    font-size: 14px;
+    color: var(--berry-main-color);
+
+    &:hover {
+        color: var(--berry-hover-color);
+    }
+}
+
+.sticky--post {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+    svg {
+        fill: var(--berry-text-gray-lightest);
+        margin-right: 5px;
     }
 }

@@ -7,10 +7,8 @@ get_header(); ?>
 <div class="container">
     <?php while (have_posts()) : the_post(); ?>
         <article class="bArticle">
-            <header class="bArticle--header">
-                <h2 class="bArticle--title" itemprop="headline"><?php the_title(); ?></h2>
-            </header>
-            <div class="collectionCard">
+            <h2 class="bArticle--title" itemprop="headline"><?php the_title(); ?></h2>
+            <div class="bCategory--list">
                 <?php $categories = get_terms([
                     'taxonomy' => 'category',
                     'hide_empty' => false,
@@ -19,13 +17,13 @@ get_header(); ?>
                 foreach ($categories as $category) {
                     $link = get_term_link($category, 'category')
                 ?>
-                    <a class="collectionCard--item" title="<?php echo $category->name; ?>" aria-label="<?php echo $category->name; ?>" href="<?php echo $link; ?>" data-count="<?php echo $category->count; ?>">
+                    <a class="bCategory--item" title="<?php echo $category->name; ?>" aria-label="<?php echo $category->name; ?>" href="<?php echo $link; ?>" data-count="<?php echo $category->count; ?>">
                         <?php if (get_term_meta($category->term_id, '_thumb', true)) : ?>
-                            <img class="collectionCard--image" alt="<?php echo $category->name; ?>" aria-label="<?php echo $category->name; ?>" src="<?php echo get_term_meta($category->term_id, '_thumb', true); ?>">
+                            <img class="bCategory--image" alt="<?php echo $category->name; ?>" aria-label="<?php echo $category->name; ?>" src="<?php echo get_term_meta($category->term_id, '_thumb', true); ?>">
                         <?php endif ?>
-                        <div class="collectionCard--meta">
-                            <div class="collectionCard--title"><?php echo $category->name; ?></div>
-                            <div class="collectionCard--description"><?php echo $category->description; ?></div>
+                        <div class="bCategory--meta">
+                            <div class="bCategory--title"><?php echo $category->name; ?></div>
+                            <div class="bCategory--description"><?php echo $category->description; ?></div>
                         </div>
                     </a>
                 <?php } ?>

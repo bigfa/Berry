@@ -55,7 +55,7 @@ function berry_get_post_image_count($post_id)
 /**
  * Get post images
  *
- * @since Hera 0.2.0
+ * @since Berry 0.2.0
  *
  */
 
@@ -92,10 +92,10 @@ function get_the_link_items($id = null)
     $bookmarks = get_bookmarks('orderby=date&category=' . $id);
     $output = '';
     if (!empty($bookmarks)) {
-        $output .= '<div class="link-items">';
+        $output .= '<div class="bLink--list">';
         foreach ($bookmarks as $bookmark) {
             $image = $bookmark->link_image ? '<img src="' . $bookmark->link_image . '" alt="' . $bookmark->link_name . '" class="avatar">' : get_avatar($bookmark->link_notes, 64);
-            $output .=  '<a class="link-item" href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" >
+            $output .=  '<a class="bLink--item" href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" >
              ' . $image . '
              <strong>' . $bookmark->link_name . '</strong><span class="sitename">' . $bookmark->link_description . '</span></a>';
         }
@@ -120,8 +120,8 @@ function get_link_items()
     $result = '';
     if (!empty($linkcats)) {
         foreach ($linkcats as $linkcat) {
-            $result .=  '<h3 class="link-title">' . $linkcat->name . '</h3>';
-            if ($linkcat->description) $result .= '<div class="link-description">' . $linkcat->description . '</div>';
+            $result .=  '<h3 class="bLink--title">' . $linkcat->name . '</h3>';
+            if ($linkcat->description) $result .= '<div class="bLink--description">' . $linkcat->description . '</div>';
             $result .=  get_the_link_items($linkcat->term_id);
         }
     } else {
@@ -151,5 +151,68 @@ function berry_get_post_read_time_text($post_id)
         return __('1 min read', 'Berry');
     } else {
         return sprintf(__('%d min read', 'Berry'), $reading_time);
+    }
+}
+
+
+function berry_get_post_views($post_id = 0)
+{
+
+    $views_number = (int)get_post_meta($post_id, BERRY_POST_VIEW_KEY, true);
+
+    /**
+     * Filters the returned views for a post.
+     *
+     * @since Berry 2.2.1
+     */
+    return apply_filters('berry_get_post_views', $views_number, $post_id);
+}
+
+/**
+ * Get post views
+ *
+ * @since Berry 2.2.1
+ *
+ * @param post id
+ * @return post views
+ */
+
+function berry_get_post_views_text($zero = false, $one = false, $more = false, $post = 0, $before = '', $after = '')
+{
+    $views = berry_get_post_views($post);
+    if ($views == 0) {
+        return $before . ($zero ? $zero : __('No views yet', 'Berry')) . $after;
+    } elseif ($views == 1) {
+        return $before . ($one ? $one : __('1 View', 'Berry')) . $after;
+    } else { // more than 1 view
+        $views = number_format_i18n($views);
+        return $before . ($more ? $more : sprintf(__('%d Views', 'Berry'), $views)) . $after;
+    }
+}
+
+function berry_get_post_likes($post_id = 0)
+{
+
+    $likes_number = (int)get_post_meta($post_id, BERRY_POST_LIKE_KEY, true);
+
+    /**
+     * Filters the returned likes for a post.
+     *
+     * @since Berry 2.2.1
+     */
+    return apply_filters('berry_get_post_likes', $likes_number, $post_id);
+}
+
+
+function berry_get_post_likes_text($zero = false, $one = false, $more = false, $post = 0, $before = '', $after = '')
+{
+    $likes = berry_get_post_likes($post);
+    if ($likes == 0) {
+        return false;
+    } elseif ($likes == 1) {
+        return $before . ($one ? $one : __('1 Like', 'Berry')) . $after;
+    } else { // more than 1 like
+        $likes = number_format_i18n($likes);
+        return $before . ($more ? $more : sprintf(__('%d Likes', 'Berry'), $likes)) . $after;
     }
 }

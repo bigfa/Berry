@@ -1,21 +1,33 @@
+interface obvInit {
+    archive_id: any;
+    nonce: string;
+    restfulBase: string;
+    is_single: boolean;
+    post_id: number;
+    is_archive: boolean;
+    darkmode: boolean;
+    version: string;
+    like_success_text: string;
+    copy_success_text: string;
+    now_text: string;
+    comment_success_text: string;
+}
+
 class berryBase {
     is_single: boolean = false;
     post_id: number = 0;
     is_archive: boolean = false;
     darkmode: any = false;
     VERSION: string;
+    obvInit: obvInit;
 
     constructor() {
-        //@ts-ignore
-        this.is_single = obvInit.is_single;
-        //@ts-ignore
-        this.post_id = obvInit.post_id;
-        //@ts-ignore
-        this.is_archive = obvInit.is_archive;
-        //@ts-ignore
-        this.darkmode = obvInit.darkmode;
-        //@ts-ignore
-        this.VERSION = obvInit.version;
+        this.obvInit = (window as unknown as Window & { obvInit: obvInit }).obvInit;
+        this.is_single = this.obvInit.is_single;
+        this.post_id = this.obvInit.post_id;
+        this.is_archive = this.obvInit.is_archive;
+        this.darkmode = this.obvInit.darkmode;
+        this.VERSION = this.obvInit.version;
     }
 
     getCookie(t: any) {
@@ -41,7 +53,9 @@ class berryBase {
         const html = `<div class="notice--wrapper">${message}</div>`;
 
         document.querySelector('body')!.insertAdjacentHTML('beforeend', html);
+
         document.querySelector('.notice--wrapper')!.classList.add('is-active');
+
         setTimeout(() => {
             document.querySelector('.notice--wrapper')!.remove();
         }, 3000);

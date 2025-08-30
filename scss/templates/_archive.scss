@@ -1,25 +1,58 @@
-.year-title {
-    margin-top: 30px;
-    color: var(--berry-text-gray);
-    font-size: 24px;
+.bArchive {
+    &--list {
+        background-color: var(--berry-background-gray-light);
+        border-radius: 5px;
+    }
+
+    &--item {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid var(--berry-border-color-light);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .post-time {
+            font-size: 12px;
+            color: var(--berry-text-gray-lightest);
+        }
+
+        a {
+            &:hover {
+                color: var(--berry-hover-color);
+            }
+        }
+    }
+
+    &--yearly {
+        margin-top: 30px;
+        color: var(--berry-text-gray);
+        font-size: 24px;
+    }
+
+    &--monthly {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
-.month-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+.bCategory {
+    &--list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
-.archive-item {
-    padding-left: 10px;
-}
-
-.collectionCard {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
-    padding-top: 20px;
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 8px;
+        }
+    }
 
     &--item {
         border-radius: 5px;
@@ -59,25 +92,32 @@
     }
 }
 
-.link-title {
-    font-weight: bold;
-}
+.bLink {
+    &--title {
+        font-weight: 700;
+    }
 
-.link-description {
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--berry-text-gray);
-    margin-top: 5px;
-}
+    &--description {
+        font-size: 14px;
+        line-height: 1.4;
+        color: var(--berry-text-gray);
+        margin-top: 5px;
+    }
 
-.link-items {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    &--list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        padding-bottom: 20px;
+        padding-top: 20px;
 
-    .link-item {
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 8px;
+        }
+    }
+
+    &--item {
         .avatar {
             width: 32px;
             height: 32px;
@@ -90,6 +130,12 @@
         display: flex;
         flex-direction: column;
         font-size: 14px;
+
+        &:hover {
+            strong {
+                color: var(--berry-hover-color);
+            }
+        }
 
         .sitename {
             font-size: 12px;

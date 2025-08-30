@@ -10,7 +10,6 @@ class  berrySetting
         add_action('admin_menu', [$this, 'setting_menu']);
         add_action('admin_enqueue_scripts', [$this, 'setting_scripts']);
         add_action('wp_ajax_berry_setting', array($this, 'setting_callback'));
-        //add_action('wp_ajax_nopriv_Berry_setting', array($this, 'setting_callback'));
     }
 
     function clean_options(&$value)
@@ -324,30 +323,6 @@ $berrySetting = new berrySetting(
                         'label' => __('Back to top', 'Berry'),
                         'description' => __('Enable back to top', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'loadmore',
-                    //     'label' => __('Load more', 'Berry'),
-                    //     'description' => __('Enable load more', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'home_author',
-                    //     'label' => __('Author info', 'Berry'),
-                    //     'description' => __('Enable author info in homepage', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'home_cat',
-                    //     'label' => __('Category info', 'Berry'),
-                    //     'description' => __('Enable category info in homepage', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'home_like',
-                    //     'label' => __('Like info', 'Berry'),
-                    //     'description' => __('Enable like info in homepage', 'Berry')
-                    // ],
                     [
                         'type' => 'switch',
                         'name' => 'home_image_count',
@@ -360,12 +335,6 @@ $berrySetting = new berrySetting(
                         'label' => __('Hide home cover', 'Berry'),
                         'description' => __('Hide home cover', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'exclude_status',
-                    //     'label' => __('Exclude status', 'Berry'),
-                    //     'description' => __('Exclude post type status in homepage', 'Berry')
-                    // ],
                 ]
             ],
 
@@ -378,12 +347,6 @@ $berrySetting = new berrySetting(
                         'label' => __('Author bio', 'Berry'),
                         'description' => __('Enable author bio', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'author_sns',
-                    //     'label' => __('Author sns icons', 'Berry'),
-                    //     'description' => __('Show author sns icons, will not show when author bio is off.', 'Berry')
-                    // ],
                     [
                         'type' => 'switch',
                         'name' => 'related',
@@ -410,12 +373,6 @@ $berrySetting = new berrySetting(
                     ],
                     [
                         'type' => 'switch',
-                        'name' => 'category_card',
-                        'label' => __('Category card', 'Berry'),
-                        'description' => __('Show post category info after post.', 'Berry')
-                    ],
-                    [
-                        'type' => 'switch',
                         'name' => 'show_parent',
                         'label' => __('Show parent comment', 'Berry'),
                         'description' => __('Enable show parent comment', 'Berry')
@@ -432,12 +389,6 @@ $berrySetting = new berrySetting(
                         'label' => __('Start heading', 'Berry'),
                         'description' => __('Start heading,default h3', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'show_rss_btn',
-                    //     'label' => __('RSS Button', 'Berry'),
-                    //     'description' => __('Show RSS Button in meta', 'Berry')
-                    // ],
                     [
                         'type' => 'switch',
                         'name' => 'disable_comment_link',
@@ -456,48 +407,24 @@ $berrySetting = new berrySetting(
                         'label' => __('Friend icon', 'Berry'),
                         'description' => __('Show icon when comment author url is in blogroll.', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'image_zoom',
-                    //     'label' => __('Post image zoom', 'Berry'),
-                    //     'description' => __('Zoom image when a tag link to image url.', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'update_time',
-                    //     'label' => __('Post update time', 'Berry'),
-                    //     'description' => __('Show the last update time of post.', 'Berry')
-                    // ],
+                    [
+                        'type' => 'switch',
+                        'name' => 'update_time',
+                        'label' => __('Post update time', 'Berry'),
+                        'description' => __('Show the last update time of post.', 'Berry')
+                    ],
                 ]
             ],
             [
                 'id' => 'meta',
                 'docs' => 'https://docs.wpista.com/config/sns.html',
                 'content' => [
-                    // [
-                    //     'type' => 'switch',
-                    //     'name' => 'footer_sns',
-                    //     'label' => __('Footer SNS Icons', 'Berry'),
-                    //     'description' => __('Show sns icons in footer, if this setting is on, the footer menu won\',t be displayed.', 'Berry')
-                    // ],
                     [
                         'type' => 'input',
                         'name' => 'telegram',
                         'label' => __('Telegram', 'Berry'),
                         'description' => __('Telegram link', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'input',
-                    //     'name' => 'email',
-                    //     'label' => __('Email', 'Berry'),
-                    //     'description' => __('Your email address', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'input',
-                    //     'name' => 'instagram',
-                    //     'label' => __('Instagram', 'Berry'),
-                    //     'description' => __('Instagram link', 'Berry')
-                    // ],
                     [
                         'type' => 'input',
                         'name' => 'twitter',
@@ -510,24 +437,6 @@ $berrySetting = new berrySetting(
                         'label' => __('RSS', 'Berry'),
                         'description' => __('RSS link', 'Berry')
                     ],
-                    // [
-                    //     'type' => 'input',
-                    //     'name' => 'github',
-                    //     'label' => __('Github', 'Berry'),
-                    //     'description' => __('Github link', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'input',
-                    //     'name' => 'discord',
-                    //     'label' => __('Discord', 'Berry'),
-                    //     'description' => __('Discord link', 'Berry')
-                    // ],
-                    // [
-                    //     'type' => 'input',
-                    //     'name' => 'mastodon',
-                    //     'label' => __('Mastodon', 'Berry'),
-                    //     'description' => __('Mastodon link', 'Berry')
-                    // ],
                     [
                         'type' => 'textarea',
                         'name' => 'custom_sns',

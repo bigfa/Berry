@@ -4,8 +4,7 @@
         <?php if ($berrySetting->get_setting('copyright')) : ?>
             <?php echo $berrySetting->get_setting('copyright'); ?>
         <?php else : ?>
-            Made with
-            <span class="cute">♥</span>
+            Made with ♥
         <?php endif; ?>
     </div>
 </footer>

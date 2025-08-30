@@ -1,6 +1,10 @@
-.site-header {
+.bHeader {
     padding-bottom: 20px;
     position: relative;
+
+    @media (max-width: 600px) {
+        padding-bottom: 30px;
+    }
 
     .bar {
         display: flex;
@@ -9,13 +13,7 @@
     }
 }
 
-@media (max-width: 600px) {
-    .site-header {
-        padding-bottom: 30px;
-    }
-}
-
-.subnav-ul {
+.bNav--list {
     display: flex;
     justify-content: center;
     padding: 20px 0;
@@ -36,10 +34,6 @@
             }
         }
     }
-}
-
-.sub-menu {
-    display: none;
 }
 
 .site-title {
@@ -64,20 +58,22 @@
     cursor: pointer;
 
     svg {
-        fill: rgba(0, 0, 0, 0.54);
+        fill: var(--berry-text-gray);
     }
 
     .textInput {
         display: inline-block;
         vertical-align: middle;
-        width: 1px;
+        width: 0px;
         height: 37px;
         border: none;
         font-size: 14px;
         transition: width 0.2s, padding 0.2s;
         cursor: pointer;
-        padding-left: 1px;
+        padding-left: 0;
         padding-right: 0;
+        background-color: transparent;
+        color: var(--berry-text-gray);
 
         &:focus {
             padding-left: 10px;

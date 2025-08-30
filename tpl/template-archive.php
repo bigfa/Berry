@@ -5,10 +5,8 @@ Template Name: Archives
 ?>
 <?php get_header(); ?>
 <div class="container">
-    <header class="bArticle--header">
-        <h2 class="bArticle--title"><?php the_title(); ?></h2>
-    </header>
-    <div class="list-archive-wrapper">
+    <h2 class="bArticle--title"><?php the_title(); ?></h2>
+    <div class="bArchive">
         <?php
         $args = array(
             'posts_per_page' => -1,
@@ -46,15 +44,15 @@ Template Name: Archives
 
         // list posts
         foreach ($all as $year => $months) {
-            echo '<div class="year-wrapper" id="year-' . $year . '">';
-            echo '<h2 class="year-title">' . $year . '</h2>';
+            echo '<div class="bArchive--wrapper" id="year-' . $year . '">';
+            echo '<h2 class="bArchive--yearly">' . $year . '</h2>';
             foreach ($months as $mon => $posts) {
-                echo '<h3 class="month-title">' . $mon . ' 月</h3>';
-                echo '<ul class="month-posts">';
+                echo '<h3 class="bArchive--monthly">' . $mon . ' 月</h3>';
+                echo '<div class="bArchive--list">';
                 foreach ($posts as $post) {
-                    echo '<li class="month-post"><a href="' . $post['permalink'] . '" class="post-title">' . $post['title'] . '</a><span class="post-time">' . $post['time'] . '</span></li>';
+                    echo '<div class="bArchive--item"><a href="' . $post['permalink'] . '" class="post-title">' . $post['title'] . '</a><span class="post-time">' . $post['time'] . '</span></div>';
                 }
-                echo '</ul>';
+                echo '</div>';
             }
             echo '</div>';
         }
